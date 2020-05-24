@@ -20,6 +20,9 @@ import { RequestApiProvider } from '../providers/request-api/request-api';
 import { ItemInfoApiProvider } from '../providers/item-info-api/item-info-api';
 import { UserInfoApiProvider } from '../providers/user-info-api/user-info-api';
 import { DonateInfoApiProvider } from '../providers/donate-info-api/donate-info-api';
+import { LoginPage } from '../pages/login/login';
+import { SignUpPage } from '../pages/sign-up/sign-up';
+import { CreateNgoPage } from '../pages/create-ngo/create-ngo';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { DonateInfoApiProvider } from '../providers/donate-info-api/donate-info-
     AboutTabPage,
     RequestsTabPage,
     DonateItemListPage,
-    DonatePage
+    DonatePage,
+    LoginPage,
+    SignUpPage,
+    CreateNgoPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,10 @@ import { DonateInfoApiProvider } from '../providers/donate-info-api/donate-info-
     AboutTabPage,
     RequestsTabPage,
     DonateItemListPage,
-    DonatePage
+    DonatePage,
+    LoginPage,
+    SignUpPage,
+    CreateNgoPage
   ],
   providers: [
     StatusBar,

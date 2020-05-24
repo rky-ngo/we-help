@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Donate</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>  
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -66,7 +71,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Preferable time </ion-label>
-        <ion-datetime displayFormat="MMM DD, HH:mm A" pickerFormat="MMM DD h mm A" [(ngModel)]="myDate"></ion-datetime>
+        <ion-datetime displayFormat="MMM DD, HH:mm A" pickerFormat="MMM DD h mm A" [(ngModel)]="myDate1"></ion-datetime>
       </ion-item>
       <ion-item>
         Donate

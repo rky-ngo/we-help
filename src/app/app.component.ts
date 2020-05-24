@@ -3,11 +3,13 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { SignUpPage } from '../pages/sign-up/sign-up';
+import { CreateNgoPage } from '../pages/create-ngo/create-ngo';
 
 
 @Component({
@@ -18,7 +20,7 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   rootPage = HomePage;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, iconName: string, component: any}>;
 
   constructor(
     public platform: Platform,
@@ -30,9 +32,12 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Home Page', component: HomePage},
-      { title: 'Favorite NGOs', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Home Page', iconName: 'home', component: HomePage},
+      { title: 'Favorites', iconName: 'heart', component: HelloIonicPage },
+      { title: 'Your Donates', iconName: 'basket', component: HomePage},
+      { title: 'Login', iconName: 'key', component:LoginPage},
+      { title: 'SignUp', iconName: 'key', component:SignUpPage},
+      { title: 'CreateNgoPage', iconName: 'key', component:CreateNgoPage}
     ];
   }
 

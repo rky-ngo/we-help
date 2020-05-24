@@ -8,8 +8,25 @@
 
   <ion-content>
     <ion-list>
+      <ion-list-header>Ranganath SN</ion-list-header>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        <ion-icon name="{{p.iconName}}" item-start></ion-icon>
+        <ion-label>{{p.title}}</ion-label>
+      </button>
+    </ion-list>
+    <ion-list>
+      <ion-list-header>Settings</ion-list-header>
+      <button ion-item>
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label>Account</ion-label>
+      </button>
+      <button ion-item>
+        <ion-icon name="switch" item-start></ion-icon>
+        <ion-label>Switch User</ion-label>
+      </button>
+      <button ion-item>
+        <ion-icon name="help" item-start></ion-icon>
+        <ion-label>Support</ion-label>
       </button>
     </ion-list>
   </ion-content>

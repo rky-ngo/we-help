@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Create New NGO</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="ngoForm" (ngSubmit)="createNgo()">
+    <ion-item>
+      <ion-label>Name:</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>About:</ion-label>
+      <ion-textarea type="text" formControlName="description"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Phone:</ion-label>
+      <ion-input type="text" formControlName="phoneNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Location: </ion-label>
+      <ion-input type="text" formControlName="location"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Image:</ion-label>
+      <ion-input type="text" formControlName="imageName"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" [disabled]="!ngoForm.valid">Create</button>
+  </form>
+</ion-content>

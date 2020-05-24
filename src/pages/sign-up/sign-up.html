@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>SignUp</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="userForm" (ngSubmit)="createUser()">
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Phone#</ion-label>
+      <ion-input type="text" formControlName="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Are you Ngo owner ?</ion-label>
+      <ion-toggle checked="ngoUser" formControlName="ngoUser"></ion-toggle>
+    </ion-item>
+    <button ion-button type="submit" [disabled]="!ngoForm.valid">Create</button>
+  </form>
+</ion-content>

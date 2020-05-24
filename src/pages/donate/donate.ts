@@ -17,6 +17,8 @@ export class DonatePage {
     timeStarts: '07:43',
     timeEnds: '1990-02-20'
   };
+  public myDate1:Date = new Date();
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     public toastCtrl: ToastController,
@@ -44,6 +46,10 @@ export class DonatePage {
       buttons: ['Ok']
     });
     alert.present();
+  }
+
+  goHome(){
+    this.navCtrl.popToRoot();
   }
 
 }
