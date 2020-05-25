@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ngo Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngIf="showWelcomeNote">
+    <ion-card-header>
+      We have got your registration request!
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Our team will be visiting your NGO shortly for background verification, 
+        Please support us to finish verification process.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="showWelcomeNote">
+      <ion-card-header>
+        What Next ?
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Please wait..
+          You will be able to post requests once background verification is completed.
+        </p>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-list *ngIf="!showWelcomeNote">
+    <ion-list-header>
+      Recent Requests
+    </ion-list-header>
+      <ion-item>
+        <ion-label>Toys, Groceries</ion-label>
+        <ion-checkbox color="primary" checked="false"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Toys, Groceries</ion-label>
+        <ion-checkbox color="primary" checked="false"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+          <ion-label>Toys, Groceries</ion-label>
+          <ion-checkbox color="primary" checked="false"></ion-checkbox>
+      </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+      <button ion-fab color="primary"><ion-icon name="trash"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  
+
+
+</ion-content>

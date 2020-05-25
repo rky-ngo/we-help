@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HomePage } from '../home/home';
+import { CreateNgoPage } from '../create-ngo/create-ngo';
 
 @Component({
   selector: 'page-sign-up',
@@ -16,7 +18,7 @@ export class SignUpPage {
     this.userForm = this.formBuilder.group({
       name:['', Validators.required],
       password:['', Validators.required],
-      phone:[''],
+      phone:['', Validators.required],
       ngoUser:false
     })
 
@@ -28,11 +30,13 @@ export class SignUpPage {
 
   createUser(){
     console.log(this.userForm.value);
-    // TODO: After successful creation of user 
-    // if ngoUser true 
-    //    Create New NGO
-    // if ngoUser false
-    //    Navigate to home page
+    if(this.userForm.value.ngoUser){
+      this.navCtrl.push(CreateNgoPage);
+    }else{
+      this.navCtrl.push(HomePage)
+      this.navCtrl.setRoot(HomePage);
+    }
+    
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgoHomePage } from '../ngo-home/ngo-home';
 
 @Component({
   selector: 'page-create-ngo',
@@ -31,7 +32,8 @@ export class CreateNgoPage {
     // https://goo.gl/maps/Ly5UFcWLNFPX1pjG9
     console.log(this.ngoForm.value);
     // TODO: API to save ngo
-    // Create new Request
+    this.navCtrl.push(NgoHomePage);
+    this.navCtrl.setRoot(NgoHomePage);
   }
 
 }

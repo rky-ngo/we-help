@@ -7,23 +7,23 @@
 <ion-content padding>
   <form [formGroup]="ngoForm" (ngSubmit)="createNgo()">
     <ion-item>
-      <ion-label>Name:</ion-label>
+      <ion-label color="primary">Name:</ion-label>
       <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>About:</ion-label>
+      <ion-label color="primary">About:</ion-label>
       <ion-textarea type="text" formControlName="description"></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-label>Phone:</ion-label>
+      <ion-label color="primary">Phone:</ion-label>
       <ion-input type="text" formControlName="phoneNumber"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Location: </ion-label>
+      <ion-label color="primary">Location: </ion-label>
       <ion-input type="text" formControlName="location"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Image:</ion-label>
+      <ion-label color="primary">Image:</ion-label>
       <ion-input type="text" formControlName="imageName"></ion-input>
     </ion-item>
     <button ion-button type="submit" [disabled]="!ngoForm.valid">Create</button>

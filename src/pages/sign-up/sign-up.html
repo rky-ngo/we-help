@@ -5,23 +5,36 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Please sign up
+    </ion-card-header>
+    <ion-card-content>
+      Thank you for showing interest to help NGOs
+    </ion-card-content>
+  </ion-card>
   <form [formGroup]="userForm" (ngSubmit)="createUser()">
     <ion-item>
-      <ion-label>Name</ion-label>
+      <ion-label color="primary">Name:</ion-label>
       <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Password</ion-label>
+      <ion-label color="primary">Password:</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Phone#</ion-label>
+      <ion-label color="primary">Phone:</ion-label>
       <ion-input type="text" formControlName="phone"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Are you Ngo owner ?</ion-label>
+      <ion-label color="primary">Are you Ngo owner?</ion-label>
       <ion-toggle checked="ngoUser" formControlName="ngoUser"></ion-toggle>
     </ion-item>
-    <button ion-button type="submit" [disabled]="!ngoForm.valid">Create</button>
+    <ion-row padding>
+      <ion-col>
+        <button ion-button type="submit" [disabled]="!userForm.valid">Create</button>
+      </ion-col>
+    </ion-row>
+    
   </form>
 </ion-content>

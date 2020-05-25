@@ -23,6 +23,11 @@ import { DonateInfoApiProvider } from '../providers/donate-info-api/donate-info-
 import { LoginPage } from '../pages/login/login';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { CreateNgoPage } from '../pages/create-ngo/create-ngo';
+import { NgoHomePage } from '../pages/ngo-home/ngo-home';
+import { HttpClientModule } from '@angular/common/http';
+import { NgoRequestsPage } from '../pages/ngo-requests/ngo-requests';
+import { NgoPendingRequestsTabPage } from '../pages/ngo-pending-requests-tab/ngo-pending-requests-tab';
+import { NgoCompletedRequestsTabPage } from '../pages/ngo-completed-requests-tab/ngo-completed-requests-tab';
 
 @NgModule({
   declarations: [
@@ -38,10 +43,15 @@ import { CreateNgoPage } from '../pages/create-ngo/create-ngo';
     DonatePage,
     LoginPage,
     SignUpPage,
-    CreateNgoPage
+    CreateNgoPage,
+    NgoHomePage,
+    NgoRequestsPage,
+    NgoPendingRequestsTabPage,
+    NgoCompletedRequestsTabPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -58,7 +68,11 @@ import { CreateNgoPage } from '../pages/create-ngo/create-ngo';
     DonatePage,
     LoginPage,
     SignUpPage,
-    CreateNgoPage
+    CreateNgoPage,
+    NgoHomePage,
+    NgoRequestsPage,
+    NgoPendingRequestsTabPage,
+    NgoCompletedRequestsTabPage
   ],
   providers: [
     StatusBar,
