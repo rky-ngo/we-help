@@ -1,0 +1,335 @@
+[
+  {
+    "id": 1,
+    "name": "Sadhana Charitable Trust",
+    "description": "Sadhana Educational & Charitable Trust is a non-profit Service Organisation. It was established in the year 2008.",
+    "phoneNumber": "9000000001",
+    "location": {
+      "latitude": "77.342",
+      "longitude": "12.3434"
+    },
+    "imageName": "about1.jpg",
+    "requests": [{
+      "id": 1,
+      "ngoId": 1,
+      "details": "Requesting for groceries for a week",
+      "items": [{
+        "id": 1,
+        "requestId": 1,
+        "name": "Rice",
+        "qty": 10,
+        "category": "CategoryType.Groceries",
+        "itemStatus": "StatusType.pending"
+      }],
+      "requestStatus": "StatusType.pending"
+    }],
+
+    "userInfo": [{
+      "name": "Karthik",
+      "password": "abc123",
+      "phone": 8000000001,
+      "ngoUser": true,
+      "adminUser": false
+    }]
+  },
+  {
+    "id": 2,
+    "name": "Saraswati Charitable Trust",
+    "description": "Saraswati Educational & Charitable Trust is a non-profit Service Organisation. It was established in the year 2008.",
+    "phoneNumber": "9000000003",
+    "location": {
+      "latitude": "77.342",
+      "longitude": "13.3434"
+    },
+    "imageName": "about1.jpg",
+    "requests": [{
+      "id": 2,
+      "ngoId": 2,
+      "details": "Requesting for Clothes and Medicines for a week",
+      "items": [{
+        "id": 2,
+        "requestId": 2,
+        "name": "Medicines",
+        "qty": 5,
+        "category": "CategoryType.Medicine",
+        "itemStatus": "StatusType.partialDone"
+      }, {
+        "id": 3,
+        "requestId": 2,
+        "name": "Clothes",
+        "qty": 5,
+        "category": "CategoryType.Cloths",
+        "itemStatus": "StatusType.pending"
+      }],
+      "requestStatus": "StatusType.partialDone"
+    }],
+
+    "userInfo": [{
+      "name": "Ranganath",
+      "password": "def456",
+      "phone": 8000000002,
+      "ngoUser": true,
+      "adminUser": false
+    }]
+  },
+  {
+    "id": 3,
+    "name": "Vathsalya Charitable Trust",
+    "description": "Vathsalya Educational & Charitable Trust is a non-profit Service Organisation. It was established in the year 2008.",
+    "phoneNumber": "9000000002",
+    "location": {
+      "latitude": "77.342",
+      "longitude": "13.3434"
+    },
+    "imageName": "about1.jpg",
+    "requests": [{
+        "id": 3,
+        "ngoId": 3,
+        "details": "Requesting for Clothes and Medicines for a week",
+        "items": [{
+          "id": 4,
+          "requestId": 3,
+          "name": "Medicines",
+          "qty": 5,
+          "category": "CategoryType.Medicine",
+          "itemStatus": "StatusType.partialDone"
+        }, {
+          "id": 5,
+          "requestId": 3,
+          "name": "Clothes",
+          "qty": 5,
+          "category": "CategoryType.Cloths",
+          "itemStatus": "StatusType.pending"
+        }, {
+          "id": 6,
+          "requestId": 3,
+          "name": "Rice",
+          "qty": 5,
+          "category": "CategoryType.Groceries",
+          "itemStatus": "StatusType.partialDone"
+        }],
+        "requestStatus": "StatusType.partialDone"
+      },
+      {
+        "id": 4,
+        "ngoId": 3,
+        "details": "Requesting for Cardiac Medicines for patients with Blood pressure and diabetes",
+        "items": [{
+          "id": 7,
+          "requestId": 4,
+          "name": "BP Medicines",
+          "qty": 5,
+          "category": "CategoryType.Medicine",
+          "itemStatus": "StatusType.partialDone"
+        }, {
+          "id": 8,
+          "requestId": 4,
+          "name": "Diabetic Medicines",
+          "qty": 5,
+          "category": "CategoryType.Cloths",
+          "itemStatus": "StatusType.pending"
+        }, {
+          "id": 9,
+          "requestId": 4,
+          "name": "Vitamin Tablets",
+          "qty": 5,
+          "category": "CategoryType.Groceries",
+          "itemStatus": "StatusType.partialDone"
+        }],
+        "requestStatus": "StatusType.partialDone"
+      }
+    ],
+
+    "userInfo": [{
+      "name": "Ranganath",
+      "password": "def456",
+      "phone": 8000000002,
+      "ngoUser": true,
+      "adminUser": false
+    }]
+  },
+  {
+    "id": 4,
+    "name": "Rakshaka Charitable Trust",
+    "description": "Rakshaka Educational & Charitable Trust is a non-profit Service Organisation. It was established in the year 2008.",
+    "phoneNumber": "9000000004",
+    "location": {
+      "latitude": "77.3242",
+      "longitude": "13.33434"
+    },
+    "imageName": "about1.jpg",
+    "requests": [{
+      "id": 5,
+      "ngoId": 4,
+      "details": "Requesting for Groceries like pulses, cerals and vegetables ",
+      "items": [{
+        "id": 10,
+        "requestId": 5,
+        "name": "Vegetables and pulses",
+        "qty": 10,
+        "category": "CategoryType.Groceries",
+        "itemStatus": "StatusType.pending"
+      }],
+      "requestStatus": "StatusType.pending"
+    }],
+    "userInfo": [{
+      "name": "Karthik",
+      "password": "karthik123",
+      "phone": 8000000004,
+      "ngoUser": true,
+      "adminUser": false
+    }]
+  },
+  {
+    "id": 5,
+    "name": "Pragathi Charitable Trust",
+    "description": "Pragathi Educational & Charitable Trust is a non-profit Service Organisation. It was established in the year 2008.",
+    "phoneNumber": "9000000005",
+    "location": {
+      "latitude": "77.4242",
+      "longitude": "13.3343"
+    },
+    "imageName": "about1.jpg",
+    "requests": [{
+      "id": 6,
+      "ngoId": 5,
+      "details": "Requesting for Books for High school Students ",
+      "items": [{
+        "id": 11,
+        "requestId": 6,
+        "name": "Text Books for 10th Std state syllabus",
+        "qty": 10,
+        "category": "CategoryType.Books",
+        "itemStatus": "StatusType.pending"
+      }],
+      "requestStatus": "StatusType.pending"
+    }],
+    "userInfo": [{
+      "name": "Manjunath",
+      "password": "manjunath123",
+      "phone": 8000000005,
+      "ngoUser": true,
+      "adminUser": false
+    }]
+  },
+  {
+    "id":6 ,
+    "name": "Pragathi Charitable Trust",
+    "description": "Pragathi Educational & Charitable Trust is a non-profit Service Organisation. It was established in the year 2008.",
+    "phoneNumber": "9000000006",
+    "location": {
+      "latitude": "77.4242",
+      "longitude": "13.3343"
+    },
+    "imageName": "about1.jpg",
+    "requests": [{
+      "id": 7,
+      "ngoId": 5,
+      "details": "Requesting for Books for High school Students ",
+      "items": [{
+        "id": 12,
+        "requestId": 7,
+        "name": "Text Books for 10th Std state syllabus",
+        "qty": 10,
+        "category": "CategoryType.Books",
+        "itemStatus": "StatusType.pending"
+      }],
+      "requestStatus": "StatusType.pending"
+    }],
+    "userInfo": [{
+      "name": "Manjunath",
+      "password": "manjunath123",
+      "phone": 8000000006,
+      "ngoUser": true,
+      "adminUser": false
+    }]
+  },
+  {
+    "id": 8,
+    "name": "Kamadhenu Charitable Trust",
+    "description": "Kamadhenu Educational & Charitable Trust is a non-profit Service Organisation. It was established in the year 2008.",
+    "phoneNumber": "9000000007",
+    "location": {
+      "latitude": "77.422",
+      "longitude": "13.32343"
+    },
+    "imageName": "about1.jpg",
+    "requests": [{
+      "id": 8,
+      "ngoId": 7,
+      "details": "Requesting for Home Essentials for School students ",
+      "items": [{
+        "id": 14,
+        "requestId": 8,
+        "name": "Home Essentials Like Mattress, Fan, table Lamp",
+        "qty": 10,
+        "category": "CategoryType.HomeEssentials",
+        "itemStatus": "StatusType.pending"
+      }],
+      "requestStatus": "StatusType.pending"
+    }],
+    "userInfo": [{
+      "name": "Shweta",
+      "password": "shweta123",
+      "phone": 8000000005,
+      "ngoUser": true,
+      "adminUser": false
+    }]
+  },
+  {
+    "id": 8,
+    "name": "NavaChaitanya Old Age Home",
+    "description": "NavaChaitanya Old Age Home is a non-profit Service Organisation. It was established in the year 2001.",
+    "phoneNumber": "9000000008",
+    "location": {
+      "latitude": "77.352",
+      "longitude": "13.34434"
+    },
+    "imageName": "about1.jpg",
+    "requests": [{
+        "id": 9,
+        "ngoId": 8,
+        "details": "Requesting for Sweaters and Medicines for the senior Citizens",
+        "items": [{
+          "id": 15,
+          "requestId": 9,
+          "name": "Heart/ Cardiac Medicines",
+          "qty": 5,
+          "category": "CategoryType.Medicine",
+          "itemStatus": "StatusType.pending"
+        }, {
+          "id": 16,
+          "requestId": 10,
+          "name": "Clothes / Sweaters",
+          "qty": 10,
+          "category": "CategoryType.Cloths",
+          "itemStatus": "StatusType.pending"
+        }],
+        "requestStatus": "StatusType.partialDone"
+      },
+      {
+        "id": 10,
+        "ngoId": 8,
+        "details": "Requesting for Few more Medicines",
+        "items": [{
+          "id": 16,
+          "requestId": 10,
+          "name": "BP Medicines and Antibioticsc",
+          "qty": 10,
+          "category": "CategoryType.Medicine",
+          "itemStatus": "StatusType.partialDone"
+        }],
+        "requestStatus": "StatusType.pending"
+      }
+    ],
+
+    "userInfo": [{
+      "name": "Rangarajan",
+      "password": "def456",
+      "phone": 8000000008,
+      "ngoUser": true,
+      "adminUser": false
+    }]
+  }
+
+]
