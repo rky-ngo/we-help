@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController, Events } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgoHomePage } from '../ngo-home/ngo-home';
+import { NgoApiProvider } from '../../providers/ngo-api/ngo-api';
+import { Ngo } from '../../models/ngo';
 
 @Component({
   selector: 'page-create-ngo',
@@ -10,10 +12,14 @@ import { NgoHomePage } from '../ngo-home/ngo-home';
 export class CreateNgoPage {
 
   private ngoForm:FormGroup;
+  private newNgo:Ngo;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    public ngoApi:NgoApiProvider,
+    private toast:ToastController,
+    private events:Events
     ) {
       this.ngoForm = this.formBuilder.group({
         name:['', Validators.required],
@@ -21,7 +27,7 @@ export class CreateNgoPage {
         phoneNumber:[''],
         location:[''],
         imageName:['']
-      })
+      });
   }
 
   ionViewDidLoad() {
@@ -29,11 +35,35 @@ export class CreateNgoPage {
   }
 
   createNgo(){
-    // https://goo.gl/maps/Ly5UFcWLNFPX1pjG9
     console.log(this.ngoForm.value);
-    // TODO: API to save ngo
-    this.navCtrl.push(NgoHomePage);
-    this.navCtrl.setRoot(NgoHomePage);
-  }
+    console.log('user details passed', this.navParams.data);
+    let ngo = {
+      name:this.ngoForm.value.name,
+      description: this.ngoForm.value.description,
+      phoneNumber: this.ngoForm.value.phoneNumber,
+      requests: [],
+      location:{
+        latitude:"",
+        longitude:"",
+      },
+      userInfo:this.navParams.data,
+      imageName:this.ngoForm.value.imageName,
+      status:'Inactive'
+    }
+    this.newNgo = ngo;
 
+    let key = this.ngoApi.createNgo(this.newNgo);
+    if(key){
+      let toastopen = this.toast.create({
+        message: 'Ngo registered successfully',
+        duration:3000
+      });
+      toastopen.onDidDismiss(() => {
+        this.events.publish('ngo-user');
+        this.navCtrl.push(NgoHomePage, key);
+        this.navCtrl.setRoot(NgoHomePage, key);
+      });
+      toastopen.present();
+    }
+  }
 }

@@ -3,7 +3,6 @@ import { LocationInfo } from "./location";
 import { RequestInfo } from "./request";
 
 export interface Ngo{
-    id:number;
     name:string;
     description:string;
     phoneNumber:string;
@@ -11,4 +10,5 @@ export interface Ngo{
     imageName:string;
     requests:RequestInfo[];
     userInfo:UserInfo;
+    status:string; //Active, Inactive
 }

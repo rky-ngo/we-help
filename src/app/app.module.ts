@@ -28,6 +28,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgoRequestsPage } from '../pages/ngo-requests/ngo-requests';
 import { NgoPendingRequestsTabPage } from '../pages/ngo-pending-requests-tab/ngo-pending-requests-tab';
 import { NgoCompletedRequestsTabPage } from '../pages/ngo-completed-requests-tab/ngo-completed-requests-tab';
+import firebase from 'firebase';
+import { local } from '../environments/local';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import { CreateRequestPage } from '../pages/create-request/create-request';
+
+firebase.initializeApp(local.firebaseConfig);
 
 @NgModule({
   declarations: [
@@ -47,12 +54,15 @@ import { NgoCompletedRequestsTabPage } from '../pages/ngo-completed-requests-tab
     NgoHomePage,
     NgoRequestsPage,
     NgoPendingRequestsTabPage,
-    NgoCompletedRequestsTabPage
+    NgoCompletedRequestsTabPage,
+    CreateRequestPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(local.firebaseConfig),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -72,7 +82,8 @@ import { NgoCompletedRequestsTabPage } from '../pages/ngo-completed-requests-tab
     NgoHomePage,
     NgoRequestsPage,
     NgoPendingRequestsTabPage,
-    NgoCompletedRequestsTabPage
+    NgoCompletedRequestsTabPage,
+    CreateRequestPage
   ],
   providers: [
     StatusBar,

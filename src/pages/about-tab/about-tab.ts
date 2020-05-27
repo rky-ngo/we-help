@@ -1,24 +1,19 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the AboutTabPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NgoApiProvider } from '../../providers/ngo-api/ngo-api';
 
 @Component({
   selector: 'page-about-tab',
   templateUrl: 'about-tab.html',
 })
 export class AboutTabPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public ngo:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private ngoApi:NgoApiProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutTabPage');
+    this.ngo = this.ngoApi.getNgoDetailsById('-M8FpXwyEPpesj1W3ZDq');
   }
 
 }

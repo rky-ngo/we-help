@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-ngo-pending-requests-tab',
-  templateUrl: 'ngo-pending-requests-tab.html',
+  selector: 'page-create-request',
+  templateUrl: 'create-request.html',
 })
-export class NgoPendingRequestsTabPage {
+export class CreateRequestPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NgoPendingRequestsTabPage');
+    console.log('ionViewDidLoad CreateRequestPage');
   }
-
+  
 }
