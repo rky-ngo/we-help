@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { RequestApiProvider } from '../../providers/request-api/request-api';
-import { CreateRequestPage } from '../create-request/create-request';
+import { CategoryListPage } from '../category-list/category-list';
 
 @Component({
   selector: 'page-ngo-home',
@@ -21,8 +21,8 @@ export class NgoHomePage {
     //this.requestsApi.getAllRequestByNgoId(this.navParams.data);
   }
 
-  goToCreateRequestPage(){
-    this.navCtrl.push(CreateRequestPage);
+  goToCategoryList(){
+    this.navCtrl.push(CategoryListPage);
   }
 
 }

@@ -32,7 +32,8 @@ import firebase from 'firebase';
 import { local } from '../environments/local';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
-import { CreateRequestPage } from '../pages/create-request/create-request';
+import { CategoryListPage } from '../pages/category-list/category-list';
+import { ItemListPage } from '../pages/item-list/item-list';
 
 firebase.initializeApp(local.firebaseConfig);
 
@@ -55,7 +56,8 @@ firebase.initializeApp(local.firebaseConfig);
     NgoRequestsPage,
     NgoPendingRequestsTabPage,
     NgoCompletedRequestsTabPage,
-    CreateRequestPage
+    CategoryListPage,
+    ItemListPage
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,8 @@ firebase.initializeApp(local.firebaseConfig);
     NgoRequestsPage,
     NgoPendingRequestsTabPage,
     NgoCompletedRequestsTabPage,
-    CreateRequestPage
+    CategoryListPage,
+    ItemListPage
   ],
   providers: [
     StatusBar,

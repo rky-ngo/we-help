@@ -48,7 +48,7 @@ export class UserInfoApiProvider {
     let userInfo:UserInfo = {
       id: '',
       name: 'Ranganath SN',
-      ngoUser: false,
+      ngoUser: true,
       phone: 9964322702,
       adminUser:false,
       password:'secret'

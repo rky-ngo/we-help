@@ -15,7 +15,6 @@ import { NgoHomePage } from '../pages/ngo-home/ngo-home';
 import { NgoPendingRequestsTabPage } from '../pages/ngo-pending-requests-tab/ngo-pending-requests-tab';
 import { NgoRequestsPage } from '../pages/ngo-requests/ngo-requests';
 import { RequiredValidator } from '@angular/forms';
-import { CreateRequestPage } from '../pages/create-request/create-request';
 
 
 @Component({
@@ -55,7 +54,6 @@ export class MyApp {
       this.pages = [
         { title: 'Ngo Home', iconName: 'home', component: NgoHomePage},
         { title: 'Requests', iconName: 'heart', component: NgoRequestsPage },
-        { title: 'Create Request', iconName: 'heart', component:CreateRequestPage }
       ];
       this.openPage({ title: 'Ngo Home', iconName: 'home', component: NgoHomePage});
     });
