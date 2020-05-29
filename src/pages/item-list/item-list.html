@@ -5,14 +5,23 @@
 </ion-header>
 
 <ion-content padding>
-
-  <ion-list>
-    <ion-item *ngFor="let itemName of categoryItems">
-      <ion-thumbnail item-start>
-        <img src="img/thumbnail-totoro.png">
-      </ion-thumbnail>
-      <h2>{{itemName}}</h2>
-    </ion-item>
-  </ion-list>
-
+  <ion-grid>
+        <ion-row *ngFor="let item of itemsInfo">
+            <ion-col col-2>
+              <ion-thumbnail item-start id="itemImage">
+                <img src="assets/imgs/{{item.imageName}}">
+              </ion-thumbnail>
+            </ion-col>
+            <ion-col col-2>
+              <div class="input-wrapper">
+                  <ion-label>{{item.name}}</ion-label>
+              </div>
+            </ion-col>
+            <ion-col col-8>
+              <ion-item>
+                  <ion-input type="number" item-end [(ngModel)]="item.qty"></ion-input>
+              </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

@@ -23,7 +23,7 @@ export class ItemInfoApiProvider {
   }
 
   getAllItemsByCategoryName(categoryName){
-    return Object.keys(this.itemsObj[categoryName]);
+    return this.itemsObj[categoryName];
   }
 
   getAllCategories():string[]{
