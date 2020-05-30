@@ -10,10 +10,12 @@ import { DonatePage } from '../donate/donate';
 })
 export class NgoDetailPage {
 
+  public ngo:any;
   public aboutTab = AboutTabPage;
   public reqeustsTab = RequestsTabPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.ngo = this.navParams.data;
   }
 
   ionViewDidLoad() {

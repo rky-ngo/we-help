@@ -23,9 +23,8 @@
           View All
       </button>
     </ion-list-header>
-      <button ion-item (click)="goToNgoPage()">NGO1</button>
-      <button ion-item (click)="goToNgoPage()">NGO2</button>
-      <button ion-item (click)="goToNgoPage()">NGO3</button>
+    <button *ngFor ="let ngo of nearByNgos" ion-item (click)="goToNgoDetailPage(ngo)">{{ngo.name}}</button>
+
   </ion-list>
 
   <ion-list>

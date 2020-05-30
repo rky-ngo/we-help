@@ -9,30 +9,15 @@
     <ion-list-header>
       Recent Requests
     </ion-list-header>
-      <button ion-item (click)="goToDonateItemPage()">
+    <button *ngFor = "let request of allRequests" ion-item (click)="goToDonateItemPage()">
         <ion-avatar item-end>
           <img src="assets/imgs/groceries.png">
         </ion-avatar>
-        <h2>Toys, Groceries</h2>
-        <h3>Crickte bat, Rice</h3>
+        <h2 *ngFor ="let item of request">{{item}}</h2>
+       
         <p>Please, help our kids</p>
       </button>
-      <button ion-item (click)="goToDonateItemPage()">
-        <ion-avatar item-end>
-          <img src="assets/imgs/toys.png">
-        </ion-avatar>
-        <h2>Toys, Groceries</h2>
-        <h3>Crickte bat, Rice</h3>
-        <p>Please, help our kids</p>
-      </button>
-      <button ion-item (click)="goToDonateItemPage()">
-        <ion-avatar item-end>
-          <img src="assets/imgs/groceries.png">
-        </ion-avatar>
-        <h2>Toys, Groceries</h2>
-        <h3>Crickte bat, Rice</h3>
-        <p>Please, help our kids</p>
-      </button>
+      
   </ion-list>
   
 </ion-content>

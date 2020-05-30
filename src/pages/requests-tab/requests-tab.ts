@@ -8,7 +8,12 @@ import { DonateItemListPage } from '../donate-item-list/donate-item-list';
 })
 export class RequestsTabPage {
 
+  public ngoObj : any;
+  public allRequests: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.ngoObj = this.navParams.data;
+    this.allRequests = this.ngoObj.requests;
   }
 
   ionViewDidLoad() {
