@@ -9,11 +9,11 @@
     <ion-list-header>
       Recent Requests
     </ion-list-header>
-    <button *ngFor = "let request of allRequests" ion-item (click)="goToDonateItemPage()">
+    <button *ngFor = "let request of allRequests" ion-item (click)="goToDonateItemPage(request)">
         <ion-avatar item-end>
           <img src="assets/imgs/groceries.png">
         </ion-avatar>
-        <h2 *ngFor ="let item of request">{{item}}</h2>
+        <h2 *ngFor ="let item of request">{{item | titlecase}}</h2>
        
         <p>Please, help our kids</p>
       </button>

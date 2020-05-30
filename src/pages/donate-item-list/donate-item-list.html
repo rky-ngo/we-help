@@ -7,10 +7,10 @@
 <ion-content padding>
   <h3>Items</h3>
   <ion-grid>
-        <ion-row>
+        <ion-row *ngFor = "let request of requestsArray">
             <ion-col col-4>
               <div><ion-label>
-                  Rice
+                  {{request | titlecase}}
                 </ion-label></div>
             </ion-col>
             <ion-col col-3>
@@ -31,53 +31,7 @@
               </ion-col>
           </ion-row>
 
-          <ion-row>
-              <ion-col col-4>
-                <div><ion-label>
-                    Cricket Bat
-                  </ion-label></div>
-              </ion-col>
-              <ion-col col-3>
-                <div><ion-toggle checked="false"></ion-toggle></div>
-              </ion-col>
-              <ion-col>
-                  <button ion-button outline small icon-only (click)="decrementNumber()">
-                    <ion-icon name="remove"></ion-icon>
-                  </button>
-                </ion-col>
-                <ion-col col-1>
-                  <ion-label>5</ion-label>
-                </ion-col>
-                <ion-col>
-                  <button ion-button outline small icon-only (click)="incrementNumber()">
-                    <ion-icon name="add"></ion-icon>
-                  </button>
-                </ion-col>
-            </ion-row>
-
-            <ion-row>
-                <ion-col col-4>
-                  <div><ion-label>
-                      Books
-                    </ion-label></div>
-                </ion-col>
-                <ion-col col-3>
-                  <div><ion-toggle checked="false"></ion-toggle></div>
-                </ion-col>
-                <ion-col>
-                    <button ion-button outline small icon-only (click)="decrementNumber()">
-                      <ion-icon name="remove"></ion-icon>
-                    </button>
-                  </ion-col>
-                  <ion-col col-1>
-                    <ion-label>5</ion-label>
-                  </ion-col>
-                  <ion-col>
-                    <button ion-button outline small icon-only (click)="incrementNumber()">
-                      <ion-icon name="add"></ion-icon>
-                    </button>
-                  </ion-col>
-              </ion-row>
+          
   </ion-grid>
 
   <ion-list>

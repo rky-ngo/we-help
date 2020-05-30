@@ -23,7 +23,7 @@
           View All
       </button>
     </ion-list-header>
-    <button *ngFor ="let ngo of nearByNgos" ion-item (click)="goToNgoDetailPage(ngo)">{{ngo.name}}</button>
+    <button *ngFor ="let ngo of nearByNgos" ion-item (click)="goToNgoDetailPage(ngo)">{{ngo.name | uppercase}}</button>
 
   </ion-list>
 

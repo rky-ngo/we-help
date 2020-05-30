@@ -20,8 +20,8 @@ export class RequestsTabPage {
     console.log('ionViewDidLoad RequestsTabPage');
   }
 
-  goToDonateItemPage(){
-    this.navCtrl.push(DonateItemListPage);
+  goToDonateItemPage(request){
+    this.navCtrl.push(DonateItemListPage, request);
   }
 
 }
