@@ -7,6 +7,8 @@ import { Events } from 'ionic-angular';
 export class ItemInfoApiProvider {
   private categories:string[];
   private itemsObj:any;
+  private newRequestItems:any = [];
+
   constructor(public http: HttpClient, private events:Events) {
     console.log('Hello ItemInfoApiProvider Provider');
   }
@@ -20,6 +22,18 @@ export class ItemInfoApiProvider {
       console.log(this.categories);
       this.events.publish('categories-loaded')
     });
+  }
+
+  addItemsToRequestBasket(items){
+    var categoryName = items[0].category
+    var item = {};
+    item[categoryName] = items;
+    this.newRequestItems.push(item);
+    console.log(this.newRequestItems);
+  }
+
+  getRequestItemsToPost(){
+    return this.newRequestItems;
   }
 
   getAllItemsByCategoryName(categoryName){

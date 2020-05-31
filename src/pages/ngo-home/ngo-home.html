@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngIf="showWelcomeNote">
+  <ion-card *ngIf="ngoRequests == 0">
     <ion-card-header>
       Thank you for registering with us !
     </ion-card-header>
@@ -20,7 +20,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="showWelcomeNote">
+  <ion-card *ngIf="ngoRequests == 0">
       <ion-card-header>
         What Next ?
       </ion-card-header>
@@ -35,29 +35,21 @@
       </ion-card-content>
   </ion-card>
 
-  <ion-list *ngIf="!showWelcomeNote">
+  <ion-list *ngIf="ngoRequests?.length > 0">
     <ion-list-header>
-      Recent Requests
+        Your Requests
     </ion-list-header>
-      <ion-item>
-        <ion-label>Toys, Groceries</ion-label>
-        <ion-checkbox color="primary" checked="false"></ion-checkbox>
-      </ion-item>
-      <ion-item>
-        <ion-label>Toys, Groceries</ion-label>
-        <ion-checkbox color="primary" checked="false"></ion-checkbox>
-      </ion-item>
-      <ion-item>
-          <ion-label>Toys, Groceries</ion-label>
-          <ion-checkbox color="primary" checked="false"></ion-checkbox>
+      <ion-item *ngFor="let request of ngoRequests">
+        <ion-label>{{request.requestTitle | uppercase}}</ion-label>
+        <ion-checkbox color="primary" [(ngModel)]="request.selectedForDelete" (ionChange)="selectionChanged(request)"></ion-checkbox>
       </ion-item>
   </ion-list>
 
   <ion-fab right bottom>
     <button ion-fab color="primary"><ion-icon name="arrow-dropup"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
-      <button ion-fab color="primary"><ion-icon name="trash"></ion-icon></button>
+      <button ion-fab color="primary" (click)="goToCategoryList()"><ion-icon name="add"></ion-icon></button>
+      <button ion-fab color="primary" (click)="deleteRequests()"><ion-icon name="trash"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
   

@@ -10,22 +10,22 @@
     <ion-list>
       <ion-list-header>Ranganath SN</ion-list-header>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon name="{{p.iconName}}" item-start></ion-icon>
+        <ion-icon color="primary" name="{{p.iconName}}" item-start></ion-icon>
         <ion-label>{{p.title}}</ion-label>
       </button>
     </ion-list>
     <ion-list>
       <ion-list-header>Settings</ion-list-header>
       <button ion-item>
-        <ion-icon name="person" item-start></ion-icon>
+        <ion-icon color="primary" name="person" item-start></ion-icon>
         <ion-label>Account</ion-label>
       </button>
       <button ion-item>
-        <ion-icon name="help-circle-outline" item-start></ion-icon>
+        <ion-icon color="primary" name="help-circle" item-start></ion-icon>
         <ion-label>Support</ion-label>
       </button>
-      <button ion-item>
-        <ion-icon name="log-out-outline" item-start></ion-icon>
+      <button ion-item (click)="logout()">
+        <ion-icon color="primary" name="arrow-forward-circle" item-start></ion-icon>
         <ion-label>Logout</ion-label>
       </button>
 

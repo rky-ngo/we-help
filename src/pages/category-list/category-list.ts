@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
 import { ItemListPage } from '../item-list/item-list';
 import { ItemInfoApiProvider } from '../../providers/item-info-api/item-info-api';
+import { PostRequestPage } from '../post-request/post-request';
 
 @Component({
   selector: 'page-category-list',
@@ -25,6 +26,10 @@ export class CategoryListPage {
 
   gotoItems(categoryName){
     this.navCtrl.push(ItemListPage, categoryName);
+  }
+
+  goToPostRequestPage(){
+    this.navCtrl.push(PostRequestPage)
   }
 
 }

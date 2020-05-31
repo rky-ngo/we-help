@@ -1,18 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Completed Requests</ion-title>
+    <ion-title>Post Your Request</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-header>
-      No Completed Requests
-    </ion-card-header>
-    <ion-card-content>
-      Your requests not yet completed by any donors.
-    </ion-card-content>
-  </ion-card>
+
   <ion-list>
       <ion-item-group *ngFor="let category of requestItems">
         <ion-item-divider color="light">{{category.categoryName}}</ion-item-divider>
@@ -25,4 +18,7 @@
           </ion-item>
       </ion-item-group>
   </ion-list>
+
+  <button ion-button full round (click)="postRequest()">Post Request</button>
+  
 </ion-content>

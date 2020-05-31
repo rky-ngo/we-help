@@ -14,7 +14,7 @@ export class UserInfoApiProvider {
   constructor(public http: HttpClient) {
     console.log('Hello UserInfoApiProvider Provider');
     this._usersRef = firebase.database().ref('users');
-    this._usersRef.on('child_added', this.onUserAdded, this);
+    //this._usersRef.on('child_added', this.onUserAdded, this);
     this._users = new ReplaySubject();
   }
 

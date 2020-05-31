@@ -19,9 +19,11 @@
             </ion-col>
             <ion-col col-8>
               <ion-item>
-                  <ion-input type="number" item-end [(ngModel)]="item.qty"></ion-input>
+                  <!-- <ion-label color="primary" stacked>Qty:</ion-label> -->
+                  <ion-input type="number" item-end [(ngModel)]="item.qty" clearOnEdit=true></ion-input>
               </ion-item>
             </ion-col>
         </ion-row>
     </ion-grid>
+    <button ion-button full round (click)="done(itemsInfo)">Done</button>
 </ion-content>

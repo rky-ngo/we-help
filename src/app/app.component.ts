@@ -12,9 +12,7 @@ import { SignUpPage } from '../pages/sign-up/sign-up';
 import { CreateNgoPage } from '../pages/create-ngo/create-ngo';
 import { UserInfoApiProvider } from '../providers/user-info-api/user-info-api';
 import { NgoHomePage } from '../pages/ngo-home/ngo-home';
-import { NgoPendingRequestsTabPage } from '../pages/ngo-pending-requests-tab/ngo-pending-requests-tab';
 import { NgoRequestsPage } from '../pages/ngo-requests/ngo-requests';
-import { RequiredValidator } from '@angular/forms';
 
 
 @Component({
@@ -74,5 +72,11 @@ export class MyApp {
     // navigate to the new page if it is not the current page
     //this.nav.setRoot(page.component);
     this.nav.setRoot(page.component);
+  }
+
+  logout(){
+    this.menu.close();
+    this.nav.setRoot(LoginPage);
+    this.nav.popToRoot();
   }
 }

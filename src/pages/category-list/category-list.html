@@ -1,6 +1,13 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Categories</ion-title>
+    <ion-buttons end>
+        <button id="notification-button" ion-button icon-only (click)="goToPostRequestPage()">
+          <ion-icon name="cart">
+              <ion-badge id="notifications-badge" color="primary" item-end>5</ion-badge>
+          </ion-icon>
+        </button>  
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
