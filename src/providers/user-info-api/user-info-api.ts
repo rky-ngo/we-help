@@ -9,13 +9,20 @@ export class UserInfoApiProvider {
 
   private _usersRef:any;
   private _users:any;
+  private _allUsers:any;
+  private _allUsersKey = [];
   public userType:string = "public";
+  private loggedInUser:UserInfo;
 
   constructor(public http: HttpClient) {
     console.log('Hello UserInfoApiProvider Provider');
     this._usersRef = firebase.database().ref('users');
     //this._usersRef.on('child_added', this.onUserAdded, this);
     this._users = new ReplaySubject();
+    this._usersRef.once('value').then(snapshot => {
+      this._allUsers = snapshot.val();
+      this._allUsersKey = Object.keys(this._allUsers);
+    })
   }
 
   //**** Api to create user */
@@ -43,18 +50,26 @@ export class UserInfoApiProvider {
     return this.userType;
   }
 
-  getUserDetails(userName):UserInfo{
-    //TODO: call api to get user details
-    let userInfo:UserInfo = {
-      id: '',
-      name: 'Ranganath SN',
-      ngoUser: true,
-      phone: 9964322702,
-      adminUser:false,
-      password:'secret'
-    }
-    return userInfo;
+  getLoggedInUserDetails(){
+    return this.loggedInUser;
   }
 
-
+  getUserDetails(userName, password):UserInfo{
+    let userInfo:UserInfo;
+    this._allUsersKey.forEach(key=>{
+      var user = this._allUsers[key];
+      if(user.name == userName && user.password == password){
+        userInfo = {
+          id: key,
+          name: user.name,
+          ngoUser: user.ngoUser,
+          phone: user.phone,
+          adminUser:false,
+          password:user.password
+        }
+      }
+    });
+    this.loggedInUser = userInfo;
+    return userInfo;
+  }
 }

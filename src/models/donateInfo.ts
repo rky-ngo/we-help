@@ -1,7 +1,6 @@
-import { Ngo } from "./ngo";
-
 export interface DonateInfo{
-    ngosInfo:Ngo[];
+    ngoId:string;
+    userId:string;
     ngoPickUp:boolean;
     preferredTime:string;
     status:string; // open, inprogress, done

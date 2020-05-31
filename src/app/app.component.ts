@@ -40,10 +40,7 @@ export class MyApp {
       this.pages = [
         { title: 'Home Page', iconName: 'home', component: HomePage},
         { title: 'Favorites', iconName: 'heart', component: HelloIonicPage },
-        { title: 'Your Donates', iconName: 'basket', component: HomePage},
-        { title: 'Login', iconName: 'key', component:LoginPage},
-        { title: 'SignUp', iconName: 'key', component:SignUpPage},
-        { title: 'CreateNgoPage', iconName: 'key', component:CreateNgoPage}
+        { title: 'Your Donates', iconName: 'basket', component: HomePage}
       ];
       this.openPage({ title: 'Home Page', iconName: 'home', component: HomePage});
     });
