@@ -10,22 +10,22 @@
         <ion-row *ngFor = "let request of requestsArray">
             <ion-col col-4>
               <div><ion-label>
-                  {{request | titlecase}}
+                  {{request.name | titlecase}}
                 </ion-label></div>
             </ion-col>
             <ion-col col-3>
-              <div><ion-toggle checked="false"></ion-toggle></div>
+              <div><ion-toggle checked={{request.toggle}} (ionChange)="changeToggleStatus(request)"></ion-toggle></div>
             </ion-col>
             <ion-col>
-                <button ion-button outline small icon-only (click)="decrementNumber()">
+                <button ion-button outline small icon-only (click)="decrementNumber(request)">
                   <ion-icon name="remove"></ion-icon>
                 </button>
               </ion-col>
               <ion-col col-1>
-                <ion-label>5</ion-label>
+                <ion-label>{{request.count}}</ion-label>
               </ion-col>
               <ion-col>
-                <button ion-button outline small icon-only (click)="incrementNumber()">
+                <button ion-button outline small icon-only (click)="incrementNumber(request)">
                   <ion-icon name="add"></ion-icon>
                 </button>
               </ion-col>
@@ -42,4 +42,8 @@
       <button ion-item (click)="goToNgoPage()">NGO2</button>
       <button ion-item (click)="goToNgoPage()">NGO3</button>
   </ion-list>
+  <section>
+    <button ion-button block (click)="goToDonatePage(requestsArray)">Add To Cart</button>
+  </section>
+  
 </ion-content>

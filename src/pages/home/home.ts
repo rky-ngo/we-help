@@ -9,7 +9,7 @@ import { NgoApiProvider } from '../../providers/ngo-api/ngo-api';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public nearByNgos:Ngo[] = [];
+  public nearByNgos = [];
   public recentRequestsByNgos = [];
   public ngosHelpedByYou = [];
   public ngoListRef:any;
@@ -24,10 +24,10 @@ export class HomePage {
       this.ngoListRef = this.ngoApi.getNGOList();
       var ngoList = Object.keys(this.ngoListRef);
       for(var i = 0; i<ngoList.length;i++){
-        
+        this.ngoListRef[ngoList[i]]["ngoId"] = ngoList[i];
         this.nearByNgos.push(this.ngoListRef[ngoList[i]]);
       }
-      //console.log(this.nearByNgos);
+      console.log(this.nearByNgos);
     });
   }
 
