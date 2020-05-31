@@ -26,7 +26,7 @@ export class LoginPage {
 
     if (form.valid) {
       console.log(this.login.username);
-      this.userInfo = this.userInfoApi.getUserDetails(this.login.username);
+      this.userInfo = this.userInfoApi.getUserDetails(this.login.username, this.login.password);
       if(this.userInfo.ngoUser){
         this.userInfoApi.setUserType("ngo-user");
         this.events.publish('ngo-user');
@@ -37,11 +37,7 @@ export class LoginPage {
         this.userInfoApi.setUserType("public-user");
         this.events.publish('public-user');
       }
-
       console.log(this.userInfoApi.getUserType());
-      
-      //this.userData.login(this.login.username);
-      //this.router.navigateByUrl('/app/tabs/schedule');
     }
   }
 
