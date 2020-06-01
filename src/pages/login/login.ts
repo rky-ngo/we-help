@@ -27,13 +27,13 @@ export class LoginPage {
     if (form.valid) {
       console.log(this.login.username);
       this.userInfo = this.userInfoApi.getUserDetails(this.login.username, this.login.password);
-      if(this.userInfo.ngoUser){
+      if (this.userInfo.ngoUser) {
         this.userInfoApi.setUserType("ngo-user");
         this.events.publish('ngo-user');
-      }else if(this.userInfo.adminUser){
+      } else if (this.userInfo.adminUser) {
         this.userInfoApi.setUserType("admin");
         this.events.publish('admin');
-      }else{
+      } else {
         this.userInfoApi.setUserType("public-user");
         this.events.publish('public-user');
       }

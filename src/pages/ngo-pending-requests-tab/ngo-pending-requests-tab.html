@@ -12,9 +12,10 @@
 
 <ion-content padding>
   <ion-list>
-      <ion-list-header>
-        Pending Requests
-      </ion-list-header>
-        <button *ngFor="let request of ngoRequests" ion-item (click)="goToRequestDetailsPage(request)">{{request.requestTitle | uppercase}}</button>
-    </ion-list>
+    <ion-list-header>
+      Pending Requests
+    </ion-list-header>
+    <button *ngFor="let request of ngoRequests" ion-item
+      (click)="goToRequestDetailsPage(request)">{{request.requestTitle}}</button>
+  </ion-list>
 </ion-content>
