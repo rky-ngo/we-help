@@ -12,7 +12,7 @@ export class RequestsTabPage {
   public ngoObj : any;
   public ngoRequestRef : any;
   public ngoRequests:any;
-  public items:any;
+  public items =[];
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -29,7 +29,10 @@ export class RequestsTabPage {
      for(var i=0;i<ngoRequestList.length;i++){
        var requestId = ngoRequestList[i];
        if(this.ngoRequests[requestId].ngoId === this.ngoObj.ngoId){
-        this.items = this.ngoRequests[requestId].items;
+         var singleRequest = this.ngoRequests[requestId];
+         singleRequest["requestId"] = requestId; 
+        this.items.push(singleRequest);
+        
        }
      }
      console.log(this.items); 

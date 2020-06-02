@@ -7,7 +7,7 @@
 <ion-content padding>
   <h3>Items</h3>
   <ion-grid>
-        <ion-row *ngFor = "let request of requestsArray">
+        <ion-row *ngFor = "let request of allCategoryItems">
             <ion-col col-4>
               <div><ion-label>
                   {{request.name | titlecase}}
@@ -43,7 +43,7 @@
       <button ion-item (click)="goToNgoPage()">NGO3</button>
   </ion-list>
   <section>
-    <button ion-button block (click)="goToDonatePage(requestsArray)">Add To Cart</button>
+    <button ion-button block (click)="goToDonatePage()">Add To Cart</button>
   </section>
   
 </ion-content>
