@@ -10,18 +10,26 @@ import {DonatePage} from '../donate/donate'
 })
 export class DonateItemListPage {
 
-  public requestsArray: any;
+  public requestsArray = [];
   public requestObject : any;
   public itemCounter: any;
+  public allItems = [];
+  public allCategoryItems = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.requestObject = this.navParams.data;
-    this.requestsArray = this.requestObject.categoryItems;
-    for(var i=0;i<this.requestsArray.length;i++){
-      this.requestsArray[i]["count"] = 5;
-      this.requestsArray[i]["toggle"] = false;
+    this.allItems = this.requestObject.items;
+    for(var j=0;j<this.allItems.length;j++){
+      this.requestsArray = this.allItems[j].categoryItems;
+      for(var i=0;i<this.requestsArray.length;i++){
+        this.requestsArray[i]["count"] = 0;
+        this.requestsArray[i]["toggle"] = false;
+        this.allCategoryItems.push(this.requestsArray[i]);
+      }
     }
-    console.log(this.requestsArray);
+    
+    
+    console.log(this.allCategoryItems);
   }
 
   ionViewDidLoad() {
@@ -54,8 +62,9 @@ export class DonateItemListPage {
     }
   }
 
-  goToDonatePage(requestsArray){
-    this.navCtrl.push(DonatePage, requestsArray)
+  goToDonatePage(){
+    this.requestObject["allCategoryItems"] = this.allCategoryItems;
+    this.navCtrl.push(DonatePage, this.requestObject)
 
   }
 
