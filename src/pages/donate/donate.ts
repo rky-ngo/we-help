@@ -13,14 +13,14 @@ export class DonatePage {
   };
   public myDate = {
     year: '2020',
-    month:'May 20',
+    month: 'May 20',
     timeStarts: '07:43',
     timeEnds: '1990-02-20'
   };
-  public myDate1:Date = new Date();
+  public myDate1: Date = new Date();
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams, 
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController) {
   }
@@ -29,7 +29,7 @@ export class DonatePage {
     console.log('ionViewDidLoad DonatePage');
   }
 
-  openThankYouToast(){
+  openThankYouToast() {
     const toast = this.toastCtrl.create({
       message: 'Thank you for donating .. ',
       duration: 3000,
@@ -39,16 +39,16 @@ export class DonatePage {
     this.navCtrl.popToRoot();
   }
 
-  openThankYouAlert(){
+  openThankYouAlert() {
     let alert = this.alertCtrl.create({
-      title: 'You are Awesome..',
-      subTitle: 'Thank you for donating, please pack items before pick up time',
+      title: 'Congratulations!!',
+      subTitle: 'Everyone can be great, because everyone can serve.Thanks for serving',
       buttons: ['Ok']
     });
     alert.present();
   }
 
-  goHome(){
+  goHome() {
     this.navCtrl.popToRoot();
   }
 

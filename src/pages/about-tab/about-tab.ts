@@ -7,20 +7,22 @@ import { NgoApiProvider } from '../../providers/ngo-api/ngo-api';
   templateUrl: 'about-tab.html',
 })
 export class AboutTabPage {
-  public ngoObj:any;
-  public name:any;
-  public description:any;
-  public ngoList:any;
+  public ngoObj: any;
+  public name: any;
+  public description: any;
+  public ngoList: any;
+  public imageName: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private ngoApi:NgoApiProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private ngoApi: NgoApiProvider) {
     this.ngoObj = this.navParams.data;
-    
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutTabPage');
     this.name = this.ngoObj.name;
     this.description = this.ngoObj.description;
+    this.imageName = this.ngoObj.imageName;
   }
 
 }
