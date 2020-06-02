@@ -13,17 +13,17 @@
     <ion-list style="margin-bottom: 0;">
       <ion-item>
         <ion-label position="stacked" color="primary">Username</ion-label>
-        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
-          required>
+        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false"
+          autocapitalize="off" required>
         </ion-input>
       </ion-item>
-      
+
       <ion-label color="danger" text-center>
         <p [hidden]="username.valid || submitted == false" class="ion-padding-start">
           Username is required
         </p>
       </ion-label>
-        
+
 
       <ion-item>
         <ion-label position="stacked" color="primary">Password</ion-label>
@@ -40,10 +40,10 @@
 
     <ion-row padding>
       <ion-col>
-        <button ion-button (click)="onLogin(loginForm)" type="submit" round >Login</button>
+        <button ion-button (click)="onLogin(loginForm)" type="submit" round>Login</button>
       </ion-col>
       <ion-col>
-        <button ion-button (click)="onSignup()" color="light" round >Signup</button>
+        <button ion-button (click)="onSignup()" color="light" round>Signup</button>
       </ion-col>
     </ion-row>
   </form>

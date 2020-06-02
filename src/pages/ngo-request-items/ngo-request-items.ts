@@ -6,7 +6,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'ngo-request-items.html',
 })
 export class NgoRequestItemsPage {
-  public requestItems:any;
+  public requestItems: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.requestItems = this.navParams.data.requestItems;
   }

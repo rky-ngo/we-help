@@ -14,45 +14,52 @@
     </ion-card-header>
     <ion-card-content>
       <p>
-        Our team will be visiting your NGO shortly for background verification. 
+        Our team will be visiting your NGO shortly for background verification.
         Please support us to finish verification process.
       </p>
     </ion-card-content>
   </ion-card>
 
   <ion-card *ngIf="ngoRequests == 0">
-      <ion-card-header>
-        What Next ?
-      </ion-card-header>
-      <ion-card-content>
-        <p>
-          Still you can add your requests...
-          Automatically your requests get posted once background verification is completed.
-        </p>
-          
-        <button ion-button full round (click)="goToCategoryList()">Add Request</button>
-        
-      </ion-card-content>
+    <ion-card-header>
+      What Next ?
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Still you can add your requests...
+        Automatically your requests get posted once background verification is completed.
+      </p>
+
+      <button ion-button full round (click)="goToCategoryList()">Add Request</button>
+
+    </ion-card-content>
   </ion-card>
 
   <ion-list *ngIf="ngoRequests?.length > 0">
     <ion-list-header>
-        Your Requests
+      Your Requests
     </ion-list-header>
-      <ion-item *ngFor="let request of ngoRequests">
-        <ion-label>{{request.requestTitle | uppercase}}</ion-label>
-        <ion-checkbox color="primary" [(ngModel)]="request.selectedForDelete" (ionChange)="selectionChanged(request)"></ion-checkbox>
-      </ion-item>
+    <ion-item *ngFor="let request of ngoRequests">
+      <ion-label>{{request.requestTitle}}</ion-label>
+      <ion-checkbox color="primary" [(ngModel)]="request.selectedForDelete" (ionChange)="selectionChanged(request)">
+      </ion-checkbox>
+    </ion-item>
   </ion-list>
 
   <ion-fab right bottom>
-    <button ion-fab color="primary"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <button ion-fab color="primary">
+      <ion-icon name="arrow-dropup"></ion-icon>
+    </button>
     <ion-fab-list side="top">
-      <button ion-fab color="primary" (click)="goToCategoryList()"><ion-icon name="add"></ion-icon></button>
-      <button ion-fab color="primary" (click)="deleteRequests()"><ion-icon name="trash"></ion-icon></button>
+      <button ion-fab color="primary" (click)="goToCategoryList()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button ion-fab color="primary" (click)="deleteRequests()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
     </ion-fab-list>
   </ion-fab>
-  
+
 
 
 </ion-content>
