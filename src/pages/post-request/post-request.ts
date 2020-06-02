@@ -22,14 +22,12 @@ export class PostRequestPage {
     private events: Events, private requestInfoApi: RequestApiProvider,
     public alertCtrl: AlertController) {
     this.itemsToPost = this.itemInfoApi.getRequestItemsToPost();
-    console.log(this.itemsToPost);
+    console.log('Items to post', this.itemsToPost);
     for (var i = 0; i < this.itemsToPost.length; i++) {
       this.keys.push(Object.keys(this.itemsToPost[i]));
       var temp = this.itemsToPost[i][this.keys[i]];
       for (var j = 0; j < temp.length; j++) {
-        if (temp[j].qty != 0) {
           this.allItems.push(temp[j]);
-        }
       }
     }
     this.allCategoryItems =
@@ -40,8 +38,7 @@ export class PostRequestPage {
         .value();
 
     this.requestItems = this.allCategoryItems;
-    console.log(this.requestItems);
-
+    console.log('after category items grouped',this.requestItems);
   }
 
   ionViewDidLoad() {

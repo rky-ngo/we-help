@@ -8,9 +8,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { SignUpPage } from '../pages/sign-up/sign-up';
-import { CreateNgoPage } from '../pages/create-ngo/create-ngo';
-import { UserInfoApiProvider } from '../providers/user-info-api/user-info-api';
 import { NgoHomePage } from '../pages/ngo-home/ngo-home';
 import { NgoRequestsPage } from '../pages/ngo-requests/ngo-requests';
 
@@ -21,22 +18,23 @@ import { NgoRequestsPage } from '../pages/ngo-requests/ngo-requests';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // make HelloIonicPage the root (or first) page
   rootPage:any = LoginPage;
   pages: Array<{title: string, iconName: string, component: any}>;
-
+  public user:any = {
+    name:'Ranganath SN'
+  };
   constructor(
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen, 
-    public userInfoApi: UserInfoApiProvider, 
     events:Events
   ) {
     this.initializeApp();
 
     // set our app's pages
-    events.subscribe('public-user',()=>{
+    events.subscribe('public-user',(user)=>{
+      this.user = user;
       this.pages = [
         { title: 'Home Page', iconName: 'home', component: HomePage},
         { title: 'Favorites', iconName: 'heart', component: HelloIonicPage },
@@ -45,7 +43,8 @@ export class MyApp {
       this.openPage({ title: 'Home Page', iconName: 'home', component: HomePage});
     });
     
-    events.subscribe('ngo-user',()=>{
+    events.subscribe('ngo-user',(user)=>{
+      this.user = user;
       this.pages = [
         { title: 'Ngo Home', iconName: 'home', component: NgoHomePage},
         { title: 'Requests', iconName: 'heart', component: NgoRequestsPage },
@@ -61,6 +60,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    
   }
 
   openPage(page) {

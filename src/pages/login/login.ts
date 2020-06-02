@@ -29,13 +29,13 @@ export class LoginPage {
       this.userInfo = this.userInfoApi.getUserDetails(this.login.username, this.login.password);
       if (this.userInfo.ngoUser) {
         this.userInfoApi.setUserType("ngo-user");
-        this.events.publish('ngo-user');
+        this.events.publish('ngo-user', this.userInfo);
       } else if (this.userInfo.adminUser) {
         this.userInfoApi.setUserType("admin");
-        this.events.publish('admin');
+        this.events.publish('admin', this.userInfo);
       } else {
         this.userInfoApi.setUserType("public-user");
-        this.events.publish('public-user');
+        this.events.publish('public-user', this.userInfo);
       }
       console.log(this.userInfoApi.getUserType());
     }

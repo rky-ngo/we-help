@@ -4,7 +4,7 @@
     <ion-buttons end>
         <button id="notification-button" ion-button icon-only (click)="goToPostRequestPage()">
           <ion-icon name="cart">
-              <ion-badge id="notifications-badge" color="primary" item-end>5</ion-badge>
+              <ion-badge id="notifications-badge" color="primary" item-end>{{itemCount}}</ion-badge>
           </ion-icon>
         </button>  
       </ion-buttons>
@@ -13,12 +13,12 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let name of categories">
+    <ion-item *ngFor="let categoryDetails of categories">
       <ion-thumbnail item-start>
-        <img src="img/thumbnail-totoro.png">
+        <img src="assets/imgs/{{categoryDetails.imageName}}">
       </ion-thumbnail>
-      <h2>{{name}}</h2>
-      <button ion-button clear item-end (click)="gotoItems(name)">View</button>
+      <h2>{{categoryDetails.name}}</h2>
+      <button ion-button clear item-end (click)="gotoItems(categoryDetails.name)">View</button>
     </ion-item>
   </ion-list>
 </ion-content>

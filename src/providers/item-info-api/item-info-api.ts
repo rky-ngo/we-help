@@ -5,9 +5,10 @@ import { Events } from 'ionic-angular';
 
 @Injectable()
 export class ItemInfoApiProvider {
-  private categories:string[];
+  private categoryKeys:string[];
   private itemsObj:any;
   private newRequestItems:any = [];
+  private newRequestItemsCount:number = 0;
 
   constructor(public http: HttpClient, private events:Events) {
     console.log('Hello ItemInfoApiProvider Provider');
@@ -18,8 +19,7 @@ export class ItemInfoApiProvider {
     categoriesRef.once('value').then(snapshot => {
       console.log(snapshot.val());
       this.itemsObj = snapshot.val();
-      this.categories = Object.keys(this.itemsObj);
-      console.log(this.categories);
+      this.categoryKeys = Object.keys(this.itemsObj);
       this.events.publish('categories-loaded')
     });
   }
@@ -27,21 +27,43 @@ export class ItemInfoApiProvider {
   addItemsToRequestBasket(items){
     var categoryName = items[0].category
     var item = {};
-    item[categoryName] = items;
+    var selectedItems = [];
+    items.forEach(element => {
+      if(element.qty > 0){
+        selectedItems.push(element);
+      }
+    });
+    item[categoryName] = selectedItems;
     this.newRequestItems.push(item);
     console.log(this.newRequestItems);
+    this.newRequestItemsCount = this.newRequestItemsCount + selectedItems.length;
+    this.events.publish('count-updated');
   }
 
   getRequestItemsToPost(){
     return this.newRequestItems;
   }
 
-  getAllItemsByCategoryName(categoryName){
+  getRequestItemsToPostCount(){
+    return this.newRequestItemsCount;
+  }
+
+  getAllItemsByCategoryName(categoryName){    
     return this.itemsObj[categoryName];
   }
 
-  getAllCategories():string[]{
-    return this.categories;
+  getAllCategories(){
+    var categories = [];
+    this.categoryKeys.forEach(element => {
+      var categoryDetails = {
+        name:'',
+        imageName:''
+      }
+      categoryDetails.name = element;
+      categoryDetails.imageName = this.itemsObj[element].imageName;
+      categories.push(categoryDetails);
+    })
+    return categories;
   }
 
 }

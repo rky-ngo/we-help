@@ -1,3 +1,28 @@
 page-ngo-home {
+    .card-background-page {
 
+        ion-card {
+          position: relative;
+          text-align: center;
+          height: 30%;
+        }
+      
+        .card-title {
+          position: absolute;
+          top: 65%;
+          font-size: 2.0em;
+          width: 100%;
+          font-weight: bold;
+          color:black;
+        }
+      
+        .card-subtitle {
+          font-size: 1.0em;
+          position: absolute;
+          top: 82%;
+          width: 100%;
+          color: rgb(41, 40, 40);
+        }
+      
+    }
 }

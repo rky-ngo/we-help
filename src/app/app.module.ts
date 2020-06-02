@@ -36,6 +36,8 @@ import { CategoryListPage } from '../pages/category-list/category-list';
 import { ItemListPage } from '../pages/item-list/item-list';
 import { PostRequestPage } from '../pages/post-request/post-request';
 import { NgoRequestItemsPage } from '../pages/ngo-request-items/ngo-request-items';
+import { Geolocation } from '@ionic-native/geolocation';
+import { LoacationPage } from '../pages/loacation/loacation';
 
 firebase.initializeApp(local.firebaseConfig);
 
@@ -61,7 +63,8 @@ firebase.initializeApp(local.firebaseConfig);
     CategoryListPage,
     ItemListPage,
     PostRequestPage,
-    NgoRequestItemsPage
+    NgoRequestItemsPage,
+    LoacationPage
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,8 @@ firebase.initializeApp(local.firebaseConfig);
     CategoryListPage,
     ItemListPage,
     PostRequestPage,
-    NgoRequestItemsPage
+    NgoRequestItemsPage,
+    LoacationPage
   ],
   providers: [
     StatusBar,
@@ -102,7 +106,8 @@ firebase.initializeApp(local.firebaseConfig);
     RequestApiProvider,
     ItemInfoApiProvider,
     UserInfoApiProvider,
-    DonateInfoApiProvider
+    DonateInfoApiProvider,
+    Geolocation
   ]
 })
 export class AppModule {}

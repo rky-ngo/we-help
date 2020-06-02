@@ -10,13 +10,18 @@ import { PostRequestPage } from '../post-request/post-request';
 })
 export class CategoryListPage {
   public categories = [];
+  public itemCount = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private itemInfoApi:ItemInfoApiProvider, 
     private events:Events) {
       this.events.subscribe('categories-loaded',()=>{
         this.categories = this.itemInfoApi.getAllCategories();
         console.log('categories loaded on page', this.categories);
-      })
+      });
+
+      this.events.subscribe('count-updated', () => {
+        this.itemCount = this.itemInfoApi.getRequestItemsToPostCount();
+      });
   }
 
   ionViewDidLoad() {

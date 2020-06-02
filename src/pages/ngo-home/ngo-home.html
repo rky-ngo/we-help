@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="card-background-page">
   <ion-card *ngIf="ngoRequests == 0">
     <ion-card-header>
       Thank you for registering with us !
@@ -34,6 +34,12 @@
 
     </ion-card-content>
   </ion-card>
+
+  <ion-card *ngIf="ngoRequests?.length > 0">
+      <img src="assets/imgs/banner.jpeg"/>
+      <div class="card-title">NGO</div>
+      <div class="card-subtitle">Join hands to help</div>
+    </ion-card>
 
   <ion-list *ngIf="ngoRequests?.length > 0">
     <ion-list-header>

@@ -8,7 +8,7 @@
 
   <ion-content>
     <ion-list>
-      <ion-list-header>Ranganath SN</ion-list-header>
+      <ion-list-header>{{user.name | uppercase}}</ion-list-header>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon color="primary" name="{{p.iconName}}" item-start></ion-icon>
         <ion-label>{{p.title}}</ion-label>
