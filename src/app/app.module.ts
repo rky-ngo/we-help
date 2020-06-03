@@ -39,6 +39,8 @@ import { NgoRequestItemsPage } from '../pages/ngo-request-items/ngo-request-item
 import { Geolocation } from '@ionic-native/geolocation';
 import { LoacationPage } from '../pages/loacation/loacation';
 import { UserDonatesPage } from '../pages/user-donates/user-donates';
+import { AccountPage } from '../pages/account/account';
+import { SupportPage } from '../pages/support/support';
 
 firebase.initializeApp(local.firebaseConfig);
 
@@ -66,7 +68,9 @@ firebase.initializeApp(local.firebaseConfig);
     PostRequestPage,
     NgoRequestItemsPage,
     LoacationPage,
-    UserDonatesPage
+    UserDonatesPage,
+    AccountPage,
+    SupportPage
   ],
   imports: [
     BrowserModule,
@@ -99,7 +103,9 @@ firebase.initializeApp(local.firebaseConfig);
     PostRequestPage,
     NgoRequestItemsPage,
     LoacationPage,
-    UserDonatesPage
+    UserDonatesPage,
+    AccountPage,
+    SupportPage
   ],
   providers: [
     StatusBar,

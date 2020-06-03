@@ -7,6 +7,8 @@ import { LoginPage } from '../pages/login/login';
 import { NgoHomePage } from '../pages/ngo-home/ngo-home';
 import { NgoRequestsPage } from '../pages/ngo-requests/ngo-requests';
 import { UserDonatesPage } from '../pages/user-donates/user-donates';
+import { AccountPage } from '../pages/account/account';
+import { SupportPage } from '../pages/support/support';
 
 
 @Component({
@@ -65,6 +67,16 @@ export class MyApp {
     // navigate to the new page if it is not the current page
     //this.nav.setRoot(page.component);
     this.nav.setRoot(page.component);
+  }
+
+  openAccountPage(){
+    this.menu.close();
+    this.nav.push(AccountPage);
+  }
+
+  openSupportPage(){
+    this.menu.close();
+    this.nav.push(SupportPage);
   }
 
   logout(){
