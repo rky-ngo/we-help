@@ -4,6 +4,7 @@ import { RequestApiProvider } from '../../providers/request-api/request-api';
 import { CategoryListPage } from '../category-list/category-list';
 import { UserInfoApiProvider } from '../../providers/user-info-api/user-info-api';
 import { NgoApiProvider } from '../../providers/ngo-api/ngo-api';
+import { ItemInfoApiProvider } from '../../providers/item-info-api/item-info-api';
 
 @Component({
   selector: 'page-ngo-home',
@@ -18,7 +19,8 @@ export class NgoHomePage {
     public navParams: NavParams,
     private requestsApi:RequestApiProvider, private events:Events,
     private userApi:UserInfoApiProvider,
-    private ngoApi:NgoApiProvider) {
+    private ngoApi:NgoApiProvider,
+    private itemInfoApi:ItemInfoApiProvider) {
       var userInfo = this.userApi.getLoggedInUserDetails();
       
       // code to get ngoId
@@ -53,6 +55,7 @@ export class NgoHomePage {
   }
 
   goToCategoryList(){
+    this.itemInfoApi.setRequestItemsToEmpty();
     this.navCtrl.push(CategoryListPage);
   }
 

@@ -48,7 +48,7 @@ export class SignUpPage {
         }else{
           this.navCtrl.push(HomePage)
           this.navCtrl.setRoot(HomePage);
-          this.events.publish('public-user');
+          this.events.publish('public-user', newUser);
         }
       });
       toastopen.present();

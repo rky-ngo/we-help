@@ -43,8 +43,8 @@ export class DonateInfoApiProvider {
       if(donateInfo.userInfo.id == userId){
         var ngoInfo = this.ngoApi.getNgoDetailsById(donateInfo.ngoId);
         donateInfo['ngoName'] = ngoInfo.name;
+        userDonates.push(donateInfo);
       }
-      userDonates.push(donateInfo);
     });
     return userDonates;
   }

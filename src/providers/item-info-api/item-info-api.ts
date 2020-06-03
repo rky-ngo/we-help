@@ -66,4 +66,9 @@ export class ItemInfoApiProvider {
     return categories;
   }
 
+  setRequestItemsToEmpty(){
+    this.newRequestItems = [];
+    this.newRequestItemsCount = 0;
+  }
+
 }

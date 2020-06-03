@@ -59,7 +59,7 @@ export class CreateNgoPage {
         duration:3000
       });
       toastopen.onDidDismiss(() => {
-        this.events.publish('ngo-user');
+        this.events.publish('ngo-user', this.navParams.data);
         this.navCtrl.push(NgoHomePage, key);
         this.navCtrl.setRoot(NgoHomePage, key);
       });

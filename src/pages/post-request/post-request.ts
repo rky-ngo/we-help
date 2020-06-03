@@ -5,6 +5,7 @@ import * as _ from 'lodash';
 import { RequestInfo } from '../../models/request';
 import { NgoHomePage } from '../ngo-home/ngo-home';
 import { RequestApiProvider } from '../../providers/request-api/request-api';
+import { NgoApiProvider } from '../../providers/ngo-api/ngo-api';
 
 @Component({
   selector: 'page-post-request',
@@ -20,7 +21,7 @@ export class PostRequestPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private itemInfoApi: ItemInfoApiProvider,
     private events: Events, private requestInfoApi: RequestApiProvider,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController, private ngoApi:NgoApiProvider) {
     this.itemsToPost = this.itemInfoApi.getRequestItemsToPost();
     console.log('Items to post', this.itemsToPost);
     for (var i = 0; i < this.itemsToPost.length; i++) {
@@ -46,8 +47,9 @@ export class PostRequestPage {
   }
 
   postRequest() {
+    var ngoId = this.ngoApi.getNgoIdOfLoggedInUser();
     var request: RequestInfo = {
-      ngoId: '-M8FpXwyEPpesj1W3ZDq',
+      ngoId: ngoId,
       details: '',
       items: this.requestItems,
       requestStatus: 'pending'
