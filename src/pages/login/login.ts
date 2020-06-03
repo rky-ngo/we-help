@@ -5,6 +5,7 @@ import { NavController, Events } from 'ionic-angular';
 import { SignUpPage } from '../sign-up/sign-up';
 import { UserInfoApiProvider } from '../../providers/user-info-api/user-info-api';
 import { UserInfo } from '../../models/userInfo';
+import { NgoApiProvider } from '../../providers/ngo-api/ngo-api';
 
 @Component({
   selector: 'page-login',
@@ -18,7 +19,8 @@ export class LoginPage {
   constructor(
     public userInfoApi: UserInfoApiProvider,
     public navCtrl: NavController,
-    public events: Events
+    public events: Events,
+    public ngoApi: NgoApiProvider
   ) { }
 
   onLogin(form: NgForm) {

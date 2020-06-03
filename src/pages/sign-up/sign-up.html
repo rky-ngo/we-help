@@ -30,11 +30,14 @@
       <ion-label color="primary">Are you Ngo owner?</ion-label>
       <ion-toggle checked="ngoUser" formControlName="ngoUser"></ion-toggle>
     </ion-item>
-    <ion-row padding>
+
+    <button ion-button full type="submit" round [disabled]="!userForm.valid">Create</button>
+
+    <!-- <ion-row padding>
       <ion-col>
         <button ion-button type="submit" [disabled]="!userForm.valid">Create</button>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
     
   </form>
 </ion-content>

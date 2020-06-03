@@ -48,4 +48,17 @@ export class DonateInfoApiProvider {
     });
     return userDonates;
   }
+
+  getAllDonatesforNgoId(ngoId){
+    var userDonates:any = [];
+    var keys:string[] = Object.keys(this.allDonates);
+    keys.forEach(donateId => {
+      var donateInfo = this.allDonates[donateId];
+      if(donateInfo.ngoId == ngoId){
+        userDonates.push(donateInfo);
+      }
+    });
+    return userDonates;
+  }
+
 }

@@ -9,11 +9,10 @@ export class NgoApiProvider {
 
   private _ngosRef:any;
   private _ngos:any;
-  private _ngoInfo:any;
   public nameRef:any;
   private _ngoListRef:any;
   private _ngoListObj:any;
-  private _ngoList:any;
+  private _ngoId:any;
 
   constructor(public http: HttpClient, public events:Events) {
     console.log('Hello NgoApiProvider Provider');
@@ -25,6 +24,14 @@ export class NgoApiProvider {
   //**** Api to create ngo */
   createNgo(ngo){
     return this._ngosRef.push(ngo).key;
+  }
+
+  setNgoIdOfLoggedInUser(ngoId){
+    this._ngoId = ngoId;
+  }
+
+  getNgoIdOfLoggedInUser(){
+    return this._ngoId;
   }
 
   getNgoDetailsById(ngoId){
