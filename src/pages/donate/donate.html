@@ -11,7 +11,7 @@
 
 <ion-content>
 
-  <ion-item-group>
+  <!-- <ion-item-group>
     <ion-item-divider color="light">Ngo1</ion-item-divider>
     <ion-item>
       <ion-avatar item-start style="padding-right: 15px;">
@@ -59,7 +59,21 @@
         <ion-label>Books</ion-label>
         <ion-label>Qty: 3</ion-label>
       </ion-item>
-  </ion-item-group>
+  </ion-item-group> -->
+
+  <ion-list>
+      <ion-item-group *ngFor="let category of donateInfo.donateItems">
+        <ion-item-divider color="light">{{category.categoryName}}</ion-item-divider>
+        <ion-item *ngFor="let item of category.categoryItems">
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/{{item.imageName}}">
+          </ion-thumbnail>
+          <h2>{{item.name}}</h2>
+          <p>Qty:{{item.qty}}</p>
+          <p>Qty Donating: {{item.qtyDonated}}</p>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
 
   <ion-card>
     <ion-card-header>Options</ion-card-header>
@@ -67,7 +81,7 @@
       <ion-list>
       <ion-item>
         <ion-label>Would you like to deliver?</ion-label>
-        <ion-toggle checked="false"></ion-toggle>
+        <ion-toggle checked="isDonarDeliver"></ion-toggle>
       </ion-item>
       <ion-item>
         <ion-label>Preferable time </ion-label>
@@ -75,7 +89,7 @@
       </ion-item>
       <ion-item>
         Donate
-        <button ion-button item-end icon-start (click)="openThankYouAlert()">
+        <button ion-button item-end icon-start (click)="saveDonateInfo(donateInfo)">
           <ion-icon name="star"></ion-icon>
           Donate
         </button>

@@ -10,18 +10,33 @@ import {DonatePage} from '../donate/donate'
 })
 export class DonateItemListPage {
 
-  public requestsArray: any;
+  public requestsArray = [];
   public requestObject : any;
   public itemCounter: any;
+  public requestItems = [];
+  public allCategoryItems = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.requestObject = this.navParams.data;
-    this.requestsArray = this.requestObject.categoryItems;
-    for(var i=0;i<this.requestsArray.length;i++){
-      this.requestsArray[i]["count"] = 5;
-      this.requestsArray[i]["toggle"] = false;
-    }
-    console.log(this.requestsArray);
+    console.log('Inside donate item list page',this.requestObject)
+    this.allCategoryItems = this.requestObject.requestItems;
+    this.allCategoryItems.forEach(items => {
+      items.categoryItems.forEach(item => {
+        item['qtyDonated'] = item.qty;
+      })
+    });
+    this.requestItems = this.allCategoryItems;
+    // for(var j=0;j<this.allItems.length;j++){
+    //   this.requestsArray = this.allItems[j].categoryItems;
+    //   for(var i=0;i<this.requestsArray.length;i++){
+    //     this.requestsArray[i]["count"] = 0;
+    //     this.requestsArray[i]["toggle"] = false;
+    //     this.allCategoryItems.push(this.requestsArray[i]);
+    //   }
+    // }
+    
+    
+    //console.log(this.allCategoryItems);
   }
 
   ionViewDidLoad() {
@@ -33,29 +48,34 @@ export class DonateItemListPage {
     this.navCtrl.popTo(NgoDetailPage);
   }
 
-  decrementNumber(request){
-    if(request["toggle"] == true){
-      request["count"] --;
-    }
+  // decrementNumber(request){
+  //   if(request["toggle"] == true){
+  //     request["count"] --;
+  //   }
     
-  }
-  incrementNumber(request){
-    if(request["toggle"] == true){
-      request["count"] ++;
-    }
-  }
+  // }
+  // incrementNumber(request){
+  //   if(request["toggle"] == true){
+  //     request["count"] ++;
+  //   }
+  // }
 
-  changeToggleStatus(request){
+  // changeToggleStatus(request){
     
-    if(request["toggle"] == false){
-      request["toggle"] = true;
-    }else{
-      request["toggle"] = false;
-    }
-  }
+  //   if(request["toggle"] == false){
+  //     request["toggle"] = true;
+  //   }else{
+  //     request["toggle"] = false;
+  //   }
+  // }
 
-  goToDonatePage(requestsArray){
-    this.navCtrl.push(DonatePage, requestsArray)
+  goToDonatePage(requestItems){
+    var requestDetails = {
+      requestId:this.requestObject.requestId,
+      donateItems:requestItems,
+      ngoId:this.requestObject.ngoId
+    }
+    this.navCtrl.push(DonatePage, requestDetails);
 
   }
 

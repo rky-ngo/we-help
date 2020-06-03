@@ -27,7 +27,16 @@ export class UserInfoApiProvider {
 
   //**** Api to create user */
   createUser(userInfo){
-    return this._usersRef.push(userInfo).key;
+    var key = this._usersRef.push(userInfo).key;
+    this.loggedInUser = {
+      id: key,
+      name: userInfo.name,
+      ngoUser: userInfo.ngoUser,
+      phone: userInfo.phone,
+      adminUser:false,
+      password:userInfo.password
+    };
+    return key;
   }
 
   onUserAdded(user){

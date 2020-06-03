@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Events } from 'ionic-angular';
 import { DonateItemListPage } from '../donate-item-list/donate-item-list';
-import firebase from 'firebase';
+import { RequestApiProvider } from '../../providers/request-api/request-api';
 
 @Component({
   selector: 'page-requests-tab',
@@ -9,31 +9,32 @@ import firebase from 'firebase';
 })
 export class RequestsTabPage {
 
-  public ngoObj : any;
-  public ngoRequestRef : any;
   public ngoRequests:any;
-  public items:any;
-  
+  public ngoRequestsDisplay:any = [];  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.ngoObj = this.navParams.data;
-    }
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public requestApi:RequestApiProvider, private events:Events) {
+    var ngoId = this.navParams.data.ngoId;
+    this.events.subscribe('ngo-requests-loaded', ()=>{
+      this.ngoRequests = this.requestApi.getAllRequestByNgoId(ngoId);
+      this.ngoRequests.forEach(request => {
+        if(request.requestStatus != 'Done'){
+          var requestTitle = '';
+          request.requestItems.forEach(item => {
+            requestTitle = requestTitle.concat(item.categoryName+', ');
+          });
+          requestTitle = requestTitle.substring(0, requestTitle.length - 2);
+          request['requestTitle'] = requestTitle;
+          request['ngoId'] = ngoId;
+          this.ngoRequestsDisplay.push(request);
+        }
+      })
+    })
+  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RequestsTabPage');
-    this.ngoRequestRef = firebase.database().ref('ngo-requests');
-    this.ngoRequestRef.once('value').then((snapshot)=>{
-     this.ngoRequests = snapshot.val();
-    
-     let ngoRequestList = Object.keys(this.ngoRequests);
-     for(var i=0;i<ngoRequestList.length;i++){
-       var requestId = ngoRequestList[i];
-       if(this.ngoRequests[requestId].ngoId === this.ngoObj.ngoId){
-        this.items = this.ngoRequests[requestId].items;
-       }
-     }
-     console.log(this.items); 
-  });
+      console.log('ionViewDidLoad RequestsTabPage');
+      this.requestApi.loadAllRequests();
 }
 
    goToDonateItemPage(request){

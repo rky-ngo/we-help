@@ -13,9 +13,11 @@ export class NgoDetailPage {
   public ngo:any;
   public aboutTab = AboutTabPage;
   public reqeustsTab = RequestsTabPage;
+  public name:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.ngo = this.navParams.data;
+    this.name = this.ngo.name;
   }
 
   ionViewDidLoad() {

@@ -1,15 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-
 import { Platform, MenuController, Nav, Events } from 'ionic-angular';
-
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { NgoHomePage } from '../pages/ngo-home/ngo-home';
 import { NgoRequestsPage } from '../pages/ngo-requests/ngo-requests';
+import { UserDonatesPage } from '../pages/user-donates/user-donates';
 
 
 @Component({
@@ -37,8 +34,7 @@ export class MyApp {
       this.user = user;
       this.pages = [
         { title: 'Home Page', iconName: 'home', component: HomePage},
-        { title: 'Favorites', iconName: 'heart', component: HelloIonicPage },
-        { title: 'Your Donates', iconName: 'basket', component: HomePage}
+        { title: 'Your Donates', iconName: 'basket', component: UserDonatesPage}
       ];
       this.openPage({ title: 'Home Page', iconName: 'home', component: HomePage});
     });

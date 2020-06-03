@@ -1,0 +1,31 @@
+
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Your Donates</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item-group *ngFor="let donate of userDonates">
+      <ion-item-divider color="primary">{{donate.ngoName}}</ion-item-divider>
+      <ion-list>
+        <ion-item-group style="padding: 10px" *ngFor="let donateItem of donate.donateItems">
+          <ion-label>{{donateItem.categoryName}}</ion-label>
+        <!-- <ion-item-divider color="light">{{donateItem.categoryName}}</ion-item-divider> -->
+          <ion-item *ngFor="let item of donateItem.categoryItems">
+            <ion-thumbnail item-start>
+              <img src="assets/imgs/{{item.imageName}}">
+            </ion-thumbnail>
+            <h2>{{item.name}}</h2>
+            <p>QtyDonated: {{item.qtyDonated}}</p>
+          </ion-item>
+        </ion-item-group>          
+      </ion-list>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

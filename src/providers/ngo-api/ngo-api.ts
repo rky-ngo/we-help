@@ -28,8 +28,7 @@ export class NgoApiProvider {
   }
 
   getNgoDetailsById(ngoId){
-    //Call API firebase
-    // return result
+    return this._ngoListObj[ngoId];
   }
 
   getNGOListFromDb(){

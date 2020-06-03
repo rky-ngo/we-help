@@ -15,10 +15,25 @@ export class RequestApiProvider {
     this._requestRef = firebase.database().ref('ngo-requests');
     this._requestRef.on('child_added', this.onRequestAdded, this);
     this._requests = new ReplaySubject();
+    this.events.subscribe('user-donated', (requestInfo, donateId) =>{
+      this.updateRequest(requestInfo, donateId);
+    })
   }
 
   createRequest(requestInfo) {
     return this._requestRef.push(requestInfo).key;
+  }
+
+  updateRequest(requestInfo, donateId){
+    var requestToUpdateRef = this._requestRef.child(requestInfo.requestId);
+    var request:any;
+    requestToUpdateRef.on('value', function(snapshot) {
+      request = snapshot.val();
+      request.requestStatus = 'Done';
+      request['userDonateId'] = donateId;
+    });
+    requestToUpdateRef.set(request);
+    console.log('Request Updated',request);
   }
 
   loadAllRequests() {
@@ -42,16 +57,12 @@ export class RequestApiProvider {
           selectedForDelete: false
         }
         var title = '';
-        var requestStatus = 'Done'
         this._allNgoRequests[key].items.forEach(element => {
           title = title.concat(element.categoryName, ', ');
-          if (element.itemStatus == 'pending') {
-            requestStatus = element.itemStatus;
-          }
-        })
+        });
         title = title.substring(0, title.length - 2);
         request.requestTitle = title;
-        request.requestStatus = requestStatus
+        request.requestStatus = this._allNgoRequests[key].requestStatus;
         requests.push(request);
       }
     });
@@ -63,7 +74,7 @@ export class RequestApiProvider {
       this._requestRef.child('/' + request.requestId).remove().then(function () {
         console.log('Removed Success');
       }).catch(function (error) {
-        console.log('Removed Failed');
+        console.log('Removed Failed', error);
       });
     })
 

@@ -6,8 +6,8 @@
 
 <ion-content padding>
   <h3>Items</h3>
-  <ion-grid>
-        <ion-row *ngFor = "let request of requestsArray">
+  <!-- <ion-grid>
+        <ion-row *ngFor = "let request of allCategoryItems">
             <ion-col col-4>
               <div><ion-label>
                   {{request.name | titlecase}}
@@ -32,18 +32,33 @@
           </ion-row>
 
           
-  </ion-grid>
+  </ion-grid> -->
 
   <ion-list>
+    <ion-item-group *ngFor="let category of requestItems">
+      <ion-item-divider color="primary">{{category.categoryName}}</ion-item-divider>
+      <ion-item *ngFor="let item of category.categoryItems">
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/{{item.imageName}}">
+        </ion-thumbnail>
+        <h2>{{item.name}}</h2>
+        <p>Qty:{{item.qty}}</p>
+        <label item-input class="label">
+          <input style="width: 40%" type="number" placeholder="Qty: " [(ngModel)]="item.qtyDonated">
+        </label>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+
+  <button ion-button full round (click)="goToDonatePage(requestItems)">Add To Cart</button>
+
+  <!-- <ion-list>
     <ion-list-header>
       Similar Requests by other NGO's
     </ion-list-header>
       <button ion-item (click)="goToNgoPage()">NGO1</button>
       <button ion-item (click)="goToNgoPage()">NGO2</button>
       <button ion-item (click)="goToNgoPage()">NGO3</button>
-  </ion-list>
-  <section>
-    <button ion-button block (click)="goToDonatePage(requestsArray)">Add To Cart</button>
-  </section>
+  </ion-list> -->
   
 </ion-content>
