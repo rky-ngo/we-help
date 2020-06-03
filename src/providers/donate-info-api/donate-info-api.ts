@@ -43,9 +43,22 @@ export class DonateInfoApiProvider {
       if(donateInfo.userInfo.id == userId){
         var ngoInfo = this.ngoApi.getNgoDetailsById(donateInfo.ngoId);
         donateInfo['ngoName'] = ngoInfo.name;
+        userDonates.push(donateInfo);
       }
-      userDonates.push(donateInfo);
     });
     return userDonates;
   }
+
+  getAllDonatesforNgoId(ngoId){
+    var userDonates:any = [];
+    var keys:string[] = Object.keys(this.allDonates);
+    keys.forEach(donateId => {
+      var donateInfo = this.allDonates[donateId];
+      if(donateInfo.ngoId == ngoId){
+        userDonates.push(donateInfo);
+      }
+    });
+    return userDonates;
+  }
+
 }

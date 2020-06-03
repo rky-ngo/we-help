@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
+  <ion-card *ngIf="completedRequests.length == 0">
     <ion-card-header>
       No Completed Requests
     </ion-card-header>
@@ -14,15 +14,10 @@
     </ion-card-content>
   </ion-card>
   <ion-list>
-      <ion-item-group *ngFor="let category of requestItems">
-        <ion-item-divider color="light">{{category.categoryName}}</ion-item-divider>
-        <ion-item *ngFor="let item of category.categoryItems">
-            <ion-thumbnail item-start>
-              <img src="assets/imgs/toys.png">
-            </ion-thumbnail>
-            <h2>{{item.name}}</h2>
-            <button ion-button clear item-end>{{item.qty}}</button>
-          </ion-item>
-      </ion-item-group>
+    <ion-list-header>
+      Completed Requests
+    </ion-list-header>
+    <button *ngFor="let request of completedRequests" ion-item
+      (click)="goToRequestDetailsPage(request)">{{request.requestTitle}}</button>
   </ion-list>
 </ion-content>
