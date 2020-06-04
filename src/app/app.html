@@ -16,11 +16,11 @@
     </ion-list>
     <ion-list>
       <ion-list-header>Settings</ion-list-header>
-      <button ion-item>
+      <button ion-item (click)="openAccountPage()">
         <ion-icon color="primary" name="person" item-start></ion-icon>
         <ion-label>Account</ion-label>
       </button>
-      <button ion-item>
+      <button ion-item (click)="openSupportPage()">
         <ion-icon color="primary" name="help-circle" item-start></ion-icon>
         <ion-label>Support</ion-label>
       </button>
