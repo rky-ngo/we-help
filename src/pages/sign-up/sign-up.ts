@@ -53,8 +53,6 @@ export class SignUpPage {
       });
       toastopen.present();
     }
-    
-    
   }
 
 }

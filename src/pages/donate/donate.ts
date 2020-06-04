@@ -45,8 +45,8 @@ export class DonatePage {
 
   openThankYouAlert() {
     let alert = this.alertCtrl.create({
-      title: 'Congratulations!!',
-      subTitle: 'Everyone can be great, because everyone can serve.Thanks for serving',
+      title: 'You are Awesome..!!',
+      subTitle: 'We ensure, your contribution reaches to requestors',
       buttons: ['Ok']
     });
     alert.onDidDismiss(() => {

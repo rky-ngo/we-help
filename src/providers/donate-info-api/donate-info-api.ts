@@ -24,16 +24,6 @@ export class DonateInfoApiProvider {
     })
   }
 
-  // -M8pb0W2mTHsYouIm8hv:
-  // donateItems: (2) [{…}, {…}]
-  // ngoId: "-M8FpXwyEPpesj1W3ZDq"
-  // ngoPickup: true
-  // requestId: "-M8aR_PzUyZAvstB5SbC"
-  // userInfo: {adminUser: false, id: "-M8H7UXvmx5NhxR1Pfdt", name: "user-public", ngoUser: false, password: "public", …}
-  // __proto__: Object
-  // -M8pduEURTPMOuwD2syl: {donateItems: Array(3), ngoId: "-M8FpXwyEPpesj1W3ZDq", ngoPickup: true, requestId: "-M8ctxX7nx-XS_4kswNu", userInfo: {…}}
-  // one: "two"
-
   getAllDonatesByUserId(userId){
     console.log('donate Api userId', userId);
     var userDonates:any = [];

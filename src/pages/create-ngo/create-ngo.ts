@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, Events } from 'ionic-angular';
+import { NavController, NavParams, Events, AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgoHomePage } from '../ngo-home/ngo-home';
 import { NgoApiProvider } from '../../providers/ngo-api/ngo-api';
@@ -18,7 +18,7 @@ export class CreateNgoPage {
     public navParams: NavParams, 
     private formBuilder:FormBuilder,
     public ngoApi:NgoApiProvider,
-    private toast:ToastController,
+    private alertCtrl:AlertController,
     private events:Events
     ) {
       this.ngoForm = this.formBuilder.group({
@@ -47,23 +47,39 @@ export class CreateNgoPage {
         longitude:"",
       },
       userInfo:this.navParams.data,
-      imageName:this.ngoForm.value.imageName,
+      imageName:'newNgoImage.jpg',
       status:'Inactive'
     }
     this.newNgo = ngo;
 
     let key = this.ngoApi.createNgo(this.newNgo);
-    if(key){
-      let toastopen = this.toast.create({
-        message: 'Ngo registered successfully',
-        duration:3000
+
+    if (key) {
+
+      let alert = this.alertCtrl.create({
+        title: 'Ngo registered successfully',
+        subTitle: 'Welcome to NGO-Donor Connect',
+        buttons: ['Ok']
       });
-      toastopen.onDidDismiss(() => {
+      alert.onDidDismiss(() => {
         this.events.publish('ngo-user', this.navParams.data);
         this.navCtrl.push(NgoHomePage, key);
         this.navCtrl.setRoot(NgoHomePage, key);
       });
-      toastopen.present();
+      alert.present();
     }
+
+    // if(key){
+    //   let toastopen = this.toast.create({
+    //     message: 'Ngo registered successfully',
+    //     duration:3000
+    //   });
+    //   toastopen.onDidDismiss(() => {
+    //     this.events.publish('ngo-user', this.navParams.data);
+    //     this.navCtrl.push(NgoHomePage, key);
+    //     this.navCtrl.setRoot(NgoHomePage, key);
+    //   });
+    //   toastopen.present();
+    // }
   }
 }

@@ -15,8 +15,8 @@
       <ion-item-divider color="primary">{{donate.ngoName}}</ion-item-divider>
       <ion-list>
         <ion-item-group style="padding: 10px" *ngFor="let donateItem of donate.donateItems">
-          <ion-label>{{donateItem.categoryName}}</ion-label>
-        <!-- <ion-item-divider color="light">{{donateItem.categoryName}}</ion-item-divider> -->
+          <!-- <ion-label>{{donateItem.categoryName}}</ion-label> -->
+        <ion-item-divider color="light">{{donateItem.categoryName}}</ion-item-divider>
           <ion-item *ngFor="let item of donateItem.categoryItems">
             <ion-thumbnail item-start>
               <img src="assets/imgs/{{item.imageName}}">
