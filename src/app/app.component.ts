@@ -36,7 +36,7 @@ export class MyApp {
       this.user = user;
       this.pages = [
         { title: 'Home Page', iconName: 'home', component: HomePage},
-        { title: 'Your Donates', iconName: 'basket', component: UserDonatesPage}
+        { title: 'My Donates', iconName: 'basket', component: UserDonatesPage}
       ];
       this.openPage({ title: 'Home Page', iconName: 'home', component: HomePage});
     });

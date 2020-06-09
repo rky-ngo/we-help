@@ -20,7 +20,7 @@ export class ItemListPage {
     console.log('ionViewDidLoad ItemListPage');
     this.categoryItems = this.itemInfoApi.getAllItemsByCategoryName(this.categoryName);
     var itemNames = Object.keys(this.categoryItems);
-    for(var i=0; i<itemNames.length; i++){
+    for(var i=0; i<itemNames.length-1; i++){
       var itemInfo:ItemInfo = {
         name:itemNames[i],
         category:this.categoryName,

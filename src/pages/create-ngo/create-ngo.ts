@@ -47,7 +47,7 @@ export class CreateNgoPage {
         longitude:"",
       },
       userInfo:this.navParams.data,
-      imageName:'newNgoImage.jpg',
+      imageName:'default.jpg',
       status:'Inactive'
     }
     this.newNgo = ngo;

@@ -50,8 +50,10 @@ export class DonatePage {
       buttons: ['Ok']
     });
     alert.onDidDismiss(() => {
-    this.navCtrl.push(HomePage);
-    this.navCtrl.setRoot(HomePage);
+     //this.navCtrl.popAll();
+    // this.navCtrl.push(HomePage);
+     this.navCtrl.setRoot(HomePage);
+     this.navCtrl.popToRoot();
     });
     alert.present();
   }

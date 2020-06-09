@@ -24,7 +24,11 @@ export class AboutTabPage {
     console.log('ionViewDidLoad AboutTabPage');
     this.name = this.ngoObj.name;
     this.description = this.ngoObj.description;
-    this.imageName = this.ngoObj.imageName;
+    if(this.ngoObj.imageName && this.ngoObj.imageName.length > 0){
+      this.imageName = this.ngoObj.imageName;
+    }else{
+      this.imageName = 'default.jpg';
+    }
     this.phone = this.ngoObj.phoneNumber;
   }
 

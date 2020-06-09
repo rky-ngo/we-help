@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
 import { NgoDetailPage } from '../ngo-detail/ngo-detail';
-import { Ngo } from '../../models/ngo';
 import { NgoApiProvider } from '../../providers/ngo-api/ngo-api';
 
 @Component({
