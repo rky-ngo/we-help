@@ -46,6 +46,10 @@ export class UserInfoApiProvider {
       newUser.id = key;
       this._users.next(newUser);
       console.log('On user added',newUser);
+      this._usersRef.once('value').then(snapshot => {
+        this._allUsers = snapshot.val();
+        this._allUsersKey = Object.keys(this._allUsers);
+      });
     }catch (error){
       console.log('error', error);
     }
