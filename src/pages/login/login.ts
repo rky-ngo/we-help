@@ -32,8 +32,9 @@ export class LoginPage {
       if (this.userInfo.ngoUser) {
         this.userInfoApi.setUserType("ngo-user");
         this.events.publish('ngo-user', this.userInfo);
-      } else if (this.userInfo.adminUser) {
+      } else if (this.login.username == 'admin') {
         this.userInfoApi.setUserType("admin");
+        this.userInfo.adminUser = true;
         this.events.publish('admin', this.userInfo);
       } else {
         this.userInfoApi.setUserType("public-user");

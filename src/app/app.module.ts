@@ -41,6 +41,7 @@ import { LoacationPage } from '../pages/loacation/loacation';
 import { UserDonatesPage } from '../pages/user-donates/user-donates';
 import { AccountPage } from '../pages/account/account';
 import { SupportPage } from '../pages/support/support';
+import { AdminHomePage } from '../pages/admin-home/admin-home';
 
 firebase.initializeApp(local.firebaseConfig);
 
@@ -70,7 +71,8 @@ firebase.initializeApp(local.firebaseConfig);
     LoacationPage,
     UserDonatesPage,
     AccountPage,
-    SupportPage
+    SupportPage,
+    AdminHomePage
   ],
   imports: [
     BrowserModule,
@@ -105,7 +107,8 @@ firebase.initializeApp(local.firebaseConfig);
     LoacationPage,
     UserDonatesPage,
     AccountPage,
-    SupportPage
+    SupportPage,
+    AdminHomePage
   ],
   providers: [
     StatusBar,

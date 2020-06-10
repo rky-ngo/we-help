@@ -9,6 +9,7 @@ import { NgoRequestsPage } from '../pages/ngo-requests/ngo-requests';
 import { UserDonatesPage } from '../pages/user-donates/user-donates';
 import { AccountPage } from '../pages/account/account';
 import { SupportPage } from '../pages/support/support';
+import { AdminHomePage } from '../pages/admin-home/admin-home';
 
 
 @Component({
@@ -49,6 +50,14 @@ export class MyApp {
       ];
       this.openPage({ title: 'Ngo Home', iconName: 'home', component: NgoHomePage});
     });
+
+    events.subscribe('admin', (user)=>{
+      this.user = user;
+      this.pages = [
+        {title: 'Admin', iconName: 'home', component: AdminHomePage}
+      ];
+      this.openPage({title: 'Admin', iconName: 'home', component: AdminHomePage});
+    })
   }
 
   initializeApp() {
