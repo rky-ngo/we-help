@@ -38,6 +38,7 @@ export class NgoHomePage {
 
       //code to get ngo request by id
       this.events.subscribe('ngo-requests-loaded',()=>{
+        this.ngoId = this.ngoApi.getNgoIdOfLoggedInUser()
         if(this.ngoId){
           this.ngoRequests = this.requestsApi.getAllRequestByNgoId(this.ngoId);
         }else{
